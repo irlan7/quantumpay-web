@@ -1,0 +1,22 @@
+{
+  "crisisMode": {
+    "title": "QuantumPay Crisis Mode",
+    "subtitle": "Jaringan pembayaran tangguh untuk dunia yang tidak selalu stabil.",
+    "intro": "QuantumPay dibangun dengan asumsi bahwa sistem global bisa gagal — listrik padam, internet terputus, atau serangan siber. Crisis Mode menjelaskan bagaimana jaringan tetap berjalan dan bagaimana aset pengguna tetap aman.",
+    "pillarsTitle": "Prinsip Utama",
+    "pillars": {
+      "decentralization": "Validasi terdesentralisasi di berbagai node independen lintas wilayah.",
+      "selfCustody": "Pengguna selalu memegang kendali penuh atas asetnya.",
+      "offlineReady": "Mendukung penundaan settlement dan pemulihan setelah offline.",
+      "transparency": "Semua data penting dapat diverifikasi secara on-chain."
+    },
+    "whatHappensTitle": "Apa yang terjadi saat krisis?",
+    "whatHappens": [
+      "Jaringan memprioritaskan finalitas blok dan integritas data.",
+      "Keterlambatan sementara mungkin terjadi, namun saldo tetap aman.",
+      "Tidak ada otoritas pusat yang bisa membekukan dana.",
+      "Node akan sinkron otomatis setelah gangguan."
+    ],
+    "closing": "Crisis Mode bukan fitur darurat. Ini adalah asumsi dasar QuantumPay."
+  }
+}
