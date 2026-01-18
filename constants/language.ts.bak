@@ -1,0 +1,21 @@
+export type LanguageKey =
+  | 'en'
+  | 'id'
+  | 'de'
+  | 'nl'
+  | 'ar'
+  | 'ko'
+  | 'pt';
+
+export const LANGUAGES: Record<
+  LanguageKey,
+  { label: string }
+> = {
+  en: { label: 'English' },
+  id: { label: 'Indonesia' },
+  de: { label: 'Deutsch' },
+  nl: { label: 'Nederlands' },
+  ar: { label: 'العربية' },
+  ko: { label: '한국어' },
+  pt: { label: 'Português' },
+};

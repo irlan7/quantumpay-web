@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "features": "Recursos",
+    "contact": "Contato",
+    "login": "Entrar"
+  },
+  "home": {
+    "title": "QuantumPay – Pagamentos Digitais Inteligentes",
+    "subtitle": "Soluções de pagamento rápidas, seguras e globais",
+    "features": {
+      "fast": "Transações Rápidas",
+      "fast_desc": "Processe pagamentos em segundos com tecnologia de ponta.",
+      "secure": "Sistema Seguro",
+      "secure_desc": "Segurança de nível bancário para cada transação.",
+      "global": "Acesso Global",
+      "global_desc": "Envie e receba pagamentos em todo o mundo."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "features": "Features",
+    "contact": "Contact",
+    "login": "Login"
+  },
+  "home": {
+    "title": "QuantumPay – Smart Digital Payments",
+    "subtitle": "Fast, secure, and global payment solutions",
+    "features": {
+      "fast": "Fast Transactions",
+      "fast_desc": "Process payments in seconds with cutting-edge technology.",
+      "secure": "Secure System",
+      "secure_desc": "Bank-grade security for every transaction.",
+      "global": "Global Access",
+      "global_desc": "Send and receive payments worldwide."
+    }
+  }
+}

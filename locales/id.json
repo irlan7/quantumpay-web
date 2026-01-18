@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "features": "Fitur",
+    "contact": "Kontak",
+    "login": "Masuk"
+  },
+  "home": {
+    "title": "QuantumPay – Pembayaran Digital Pintar",
+    "subtitle": "Solusi pembayaran cepat, aman, dan global",
+    "features": {
+      "fast": "Transaksi Cepat",
+      "fast_desc": "Proses pembayaran hanya dalam hitungan detik.",
+      "secure": "Sistem Aman",
+      "secure_desc": "Keamanan setara perbankan.",
+      "global": "Akses Global",
+      "global_desc": "Kirim dan terima pembayaran ke seluruh dunia."
+    }
+  }
+}

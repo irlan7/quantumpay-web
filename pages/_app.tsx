@@ -1,21 +1,7 @@
-import type { AppProps } from 'next/app';
-
-import { LanguageProvider } from '../contexts/LanguageContext';
-import { ThemeProvider } from '../contexts/ThemeContext';
-
-import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
-
 import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import '../i18n'; // ⬅️ WAJIB
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-      </LanguageProvider>
-    </ThemeProvider>
-  );
+  return <Component {...pageProps} />;
 }

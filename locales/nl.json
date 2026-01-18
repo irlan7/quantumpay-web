@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "features": "Functies",
+    "contact": "Contact",
+    "login": "Inloggen"
+  },
+  "home": {
+    "title": "QuantumPay – Slimme Digitale Betalingen",
+    "subtitle": "Snelle, veilige en wereldwijde betaaloplossingen",
+    "features": {
+      "fast": "Snelle Transacties",
+      "fast_desc": "Verwerk betalingen in seconden met moderne technologie.",
+      "secure": "Veilig Systeem",
+      "secure_desc": "Bankniveau beveiliging voor elke transactie.",
+      "global": "Wereldwijde Toegang",
+      "global_desc": "Verzend en ontvang betalingen wereldwijd."
+    }
+  }
+}
