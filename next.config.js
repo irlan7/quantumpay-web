@@ -1,16 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false, // Mematikan strict mode untuk stabilitas awal
   i18n: {
     locales: ['en', 'id', 'de', 'nl', 'ar', 'ko', 'pt'],
     defaultLocale: 'en',
   },
   typescript: {
-    // Memaksa build tetap jalan meski ada error tipe data
+    // Mengabaikan error TypeScript agar build Vercel tetap lanjut
     ignoreBuildErrors: true,
   },
   eslint: {
-    // Memaksa build tetap jalan meski ada error linting
+    // Mengabaikan error Linting saat deployment
     ignoreDuringBuilds: true,
   },
 }
