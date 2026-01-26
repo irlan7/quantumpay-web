@@ -56,7 +56,7 @@ export default function RunNode() {
           <h3>3. KONFIGURASI_GENESIS</h3>
           <p style={{ fontSize: '0.9rem' }}>Pastikan Hash Genesis Anda cocok dengan Mainnet:</p>
           <div style={{ ...codeBox, color: '#fbbf24' }}>
-            GENESIS_HASH: acc395137e5d0c28c609d011ea99d89405f07009c0bbf8933711e1a7f184edc6
+            GENESIS_HASH: 0x1d58599424f1159828236111f1f9e83063f66345091a99540c4989679269491a
           </div>
         </section>
 

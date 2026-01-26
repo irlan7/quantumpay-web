@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           <p style={{ color: '#94a3b8', fontSize: '1.4rem', maxWidth: '750px', margin: '0 auto', lineHeight: '1.6' }}>
             Infrastruktur kedaulatan digital berbasis Layer-1 dengan konsensus BFT berkecepatan tinggi. 
             <span style={{ color: '#3b82f6', display: 'block', marginTop: '10px', fontWeight: 'bold' }}>
-              Chain ID: 77001 [FROZEN]
+              Chain ID: 77077 [FROZEN]
             </span>
           </p>
 

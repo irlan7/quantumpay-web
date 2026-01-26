@@ -65,7 +65,7 @@ export default function Explorer() {
           </div>
           <div style={cardStyle}>
             <div style={{ fontSize: '0.8rem', color: theme.textMuted }}>CHAIN_ID_STATUS</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>77001 <span style={{ fontSize: '0.8rem', color: theme.accent }}>[FROZEN]</span></div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>77077 <span style={{ fontSize: '0.8rem', color: theme.accent }}>[FROZEN]</span></div>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ export default function Explorer() {
           <div style={{ marginTop: '15px', overflowX: 'auto' }}>
             <p style={{ fontSize: '0.85rem' }}>
               <strong style={{ color: theme.accent }}>GENESIS_HASH:</strong><br />
-              <span style={{ fontSize: '0.75rem', wordBreak: 'break-all' }}>acc395137e5d0c28c609d011ea99d89405f07009c0bbf8933711e1a7f184edc6</span>
+              <span style={{ fontSize: '0.75rem', wordBreak: 'break-all' }}>0x1d58599424f1159828236111f1f9e83063f66345091a99540c4989679269491a</span>
             </p>
             <p style={{ fontSize: '0.85rem' }}>
               <strong style={{ color: theme.accent }}>CORE_ENGINE:</strong> Go-Lang (quantumpay-go-v1.1)
