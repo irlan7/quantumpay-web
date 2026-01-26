@@ -6,9 +6,11 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   typescript: {
+    // Memaksa build tetap jalan meski ada error tipe data
     ignoreBuildErrors: true,
   },
   eslint: {
+    // Memaksa build tetap jalan meski ada error linting
     ignoreDuringBuilds: true,
   },
 }
