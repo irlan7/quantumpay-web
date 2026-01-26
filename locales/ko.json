@@ -3,19 +3,100 @@
     "home": "홈",
     "about": "소개",
     "features": "기능",
-    "contact": "문의",
+    "developers": "개발자",
+    "governance": "거버넌스",
+    "docs": "문서",
+    "contact": "연락처",
     "login": "로그인"
   },
+
+  "common": {
+    "language": "언어",
+    "learn_more": "자세히 알아보기",
+    "read_docs": "문서 읽기",
+    "view_github": "GitHub 보기",
+    "coming_soon": "출시 예정"
+  },
+
   "home": {
-    "title": "QuantumPay – 스마트 디지털 결제",
-    "subtitle": "빠르고 안전한 글로벌 결제 솔루션",
+    "title": "QuantumPay 블록체인 네트워크",
+    "subtitle": "보안, 확장성, 규제 대응을 위해 설계된 차세대 Layer-1 블록체인.",
+    "tagline": "오픈 소스. 결정론적. 장기적인 설계.",
+
+    "cta_primary": "네트워크 탐색",
+    "cta_secondary": "노드 실행",
+
     "features": {
-      "fast": "빠른 거래",
-      "fast_desc": "최첨단 기술로 몇 초 만에 결제 처리.",
-      "secure": "보안 시스템",
-      "secure_desc": "모든 거래에 은행 수준의 보안 제공.",
-      "global": "글로벌 접근",
-      "global_desc": "전 세계 어디서나 결제 송수신."
+      "fast": "빠르고 결정적인 처리",
+      "fast_desc": "PoS + BFT 합의 메커니즘을 통해 수 초 내 블록 최종성이 확보되어 예측 가능하고 되돌릴 수 없는 트랜잭션을 제공합니다.",
+
+      "secure": "설계 단계부터의 보안",
+      "secure_desc": "슬래싱, 검증자 책임성, 온체인과 오프체인 시스템 간의 명확한 신뢰 경계를 갖춘 암호학 중심 아키텍처.",
+
+      "global": "글로벌 채택을 위한 설계",
+      "global_desc": "국가 블록체인 인프라가 없는 지역을 위해 설계되었으며, 동남아시아에서 시작해 전 세계로 확장합니다."
     }
+  },
+
+  "about": {
+    "title": "QuantumPay 소개",
+    "description": "QuantumPay는 장기적인 지속 가능성, 낮은 에너지 소비, 투명한 거버넌스를 목표로 하는 퍼블릭 Layer-1 블록체인입니다.",
+    "mission_title": "미션",
+    "mission_desc": "정부, 기업, 오픈 네트워크를 위한 안전하고 중립적인 블록체인 기반을 제공하는 것입니다."
+  },
+
+  "features": {
+    "title": "핵심 기능",
+    "consensus": {
+      "title": "PoS + BFT 최종성",
+      "desc": "검증자들은 자산을 스테이킹하고 비잔틴 장애 허용 합의에 참여하여 에너지 낭비 없이 빠르고 되돌릴 수 없는 최종성을 달성합니다."
+    },
+    "architecture": {
+      "title": "모듈형 아키텍처",
+      "desc": "핵심 합의, 네트워킹, 실행, 오프체인 서비스가 gRPC 및 IPC를 통해 명확히 분리되어 있습니다."
+    },
+    "opensource": {
+      "title": "기본 오픈 소스",
+      "desc": "모든 핵심 프로토콜 코드와 사양은 공개되어 있으며, GitHub가 단일 진실의 원천입니다."
+    }
+  },
+
+  "developers": {
+    "title": "개발자",
+    "subtitle": "QuantumPay 베이스 레이어 위에서 직접 개발하세요.",
+    "docs": "개발자 문서",
+    "run_node": "코어 노드 실행",
+    "grpc": "gRPC & IPC 인터페이스",
+    "sdk": "SDK 및 도구 (출시 예정)"
+  },
+
+  "governance": {
+    "title": "거버넌스",
+    "description": "QuantumPay 거버넌스는 프로토콜 안정성, 투명한 변경 관리, 장기적인 네트워크 무결성을 우선시합니다.",
+    "onchain": "온체인 거버넌스 (예정)",
+    "offchain": "문서 기반 오프체인 거버넌스 (활성)"
+  },
+
+  "network": {
+    "title": "네트워크 정보",
+    "name": "QuantumPay 메인넷",
+    "chain_id": "체인 ID",
+    "consensus": "합의 방식",
+    "status": "네트워크 상태",
+    "mainnet_live": "메인넷 가동 중"
+  },
+
+  "contact": {
+    "title": "연락처",
+    "security": "보안 제보",
+    "security_desc": "보안 취약점은 비공개로 제보해 주시기 바랍니다.",
+    "email": "이메일",
+    "note": "현재 공식 텔레그램, 왓츠앱 또는 개인 DM 지원은 제공되지 않습니다."
+  },
+
+  "footer": {
+    "copyright": "© 2026 QuantumPay 네트워크",
+    "opensource": "오픈 소스 블록체인 네트워크",
+    "source_of_truth": "단일 진실의 원천: GitHub"
   }
 }

@@ -1,59 +1,75 @@
-import type { NextPage } from 'next';
-import { useTranslation } from 'react-i18next';
-
-import Navbar from '../components/layout/Navbar';
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Link from 'next/link'
+import Navbar from '../components/layout/Navbar'
 
 const Home: NextPage = () => {
-  const { t } = useTranslation();
-
   return (
-    <>
-      {/* NAVBAR */}
+    <div style={{ backgroundColor: '#05070a', color: '#ffffff', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+      <Head>
+        <title>QuantumPay | Sovereign Layer-1 Network</title>
+      </Head>
+      
       <Navbar />
 
-      {/* PAGE CONTENT */}
-      <main className="min-h-screen px-6 py-16 bg-white dark:bg-black text-black dark:text-white">
-        <div className="max-w-5xl mx-auto space-y-6">
-          <h1 className="text-4xl font-bold">
-            {t('home.title')}
+      <main className="container" style={{ paddingTop: '100px' }}>
+        <section style={{ textAlign: 'center', padding: '80px 20px' }}>
+          <h1 style={{ fontSize: '4rem', fontWeight: '900', letterSpacing: '-0.05em', marginBottom: '24px' }}>
+            QuantumPay Blockchain
           </h1>
-
-          <p className="text-lg opacity-80">
-            {t('home.subtitle')}
+          <p style={{ color: '#94a3b8', fontSize: '1.4rem', maxWidth: '750px', margin: '0 auto', lineHeight: '1.6' }}>
+            Infrastruktur kedaulatan digital berbasis Layer-1 dengan konsensus BFT berkecepatan tinggi. 
+            <span style={{ color: '#3b82f6', display: 'block', marginTop: '10px', fontWeight: 'bold' }}>
+              Chain ID: 77001 [FROZEN]
+            </span>
           </p>
 
-          <section className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="p-6 rounded-xl border dark:border-gray-800">
-              <h3 className="font-semibold text-xl">
-                {t('home.features.fast')}
-              </h3>
-              <p className="mt-2 opacity-80">
-                {t('home.features.fast_desc')}
-              </p>
-            </div>
+          <div style={{ marginTop: '40px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
+            {/* Perbaikan: Menghapus tag <a> manual untuk menghindari Runtime Error */}
+            <Link href="/explorer" className="button" style={{ 
+                backgroundColor: '#3b82f6', color: 'white', padding: '18px 36px', 
+                borderRadius: '12px', fontWeight: '800', textDecoration: 'none',
+                boxShadow: '0 4px 14px 0 rgba(59, 130, 246, 0.39)'
+              }}>
+                Explore the Network
+            </Link>
 
-            <div className="p-6 rounded-xl border dark:border-gray-800">
-              <h3 className="font-semibold text-xl">
-                {t('home.features.secure')}
-              </h3>
-              <p className="mt-2 opacity-80">
-                {t('home.features.secure_desc')}
-              </p>
-            </div>
+            <Link href="/run-node" className="button secondary" style={{ 
+                border: '1px solid #334155', color: '#f1f5f9', padding: '18px 36px', 
+                borderRadius: '12px', fontWeight: '800', textDecoration: 'none'
+              }}>
+                Run a Node
+            </Link>
+          </div>
+        </section>
 
-            <div className="p-6 rounded-xl border dark:border-gray-800">
-              <h3 className="font-semibold text-xl">
-                {t('home.features.global')}
-              </h3>
-              <p className="mt-2 opacity-80">
-                {t('home.features.global_desc')}
-              </p>
-            </div>
-          </section>
-        </div>
+        {/* Technical Stats Section */}
+        <section style={{ 
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gap: '24px', padding: '40px 20px' 
+        }}>
+          <div style={{ padding: '32px', border: '1px solid #1e293b', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.5)' }}>
+            <h3 style={{ color: '#3b82f6', marginBottom: '12px' }}>Network Finality</h3>
+            <p style={{ color: '#94a3b8' }}>Konfirmasi blok instan dalam hitungan detik, dioptimalkan untuk skalabilitas sistem pembayaran global.</p>
+          </div>
+          <div style={{ padding: '32px', border: '1px solid #1e293b', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.5)' }}>
+            <h3 style={{ color: '#3b82f6', marginBottom: '12px' }}>Native Core</h3>
+            <p style={{ color: '#94a3b8' }}>Dibangun menggunakan Go-Lang v1.1 untuk performa concurrency maksimal dan penggunaan memori yang efisien.</p>
+          </div>
+          <div style={{ padding: '32px', border: '1px solid #1e293b', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.5)' }}>
+            <h3 style={{ color: '#3b82f6', marginBottom: '12px' }}>Secure Nodes</h3>
+            <p style={{ color: '#94a3b8' }}>Keamanan tingkat tinggi dengan aturan firewall yang diperketat untuk melindungi integritas validator.</p>
+          </div>
+        </section>
       </main>
-    </>
-  );
-};
 
-export default Home;
+      <footer style={{ textAlign: 'center', padding: '60px 0', borderTop: '1px solid #1e293b', marginTop: '60px' }}>
+        <p style={{ color: '#475569', fontSize: '0.9rem' }}>
+          © 2026 QuantumPay Network – Distributed Ledger Technology
+        </p>
+      </footer>
+    </div>
+  )
+}
+
+export default Home

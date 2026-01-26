@@ -1,21 +1,102 @@
 {
   "nav": {
     "home": "Home",
-    "about": "Over ons",
+    "about": "Over",
     "features": "Functies",
+    "developers": "Ontwikkelaars",
+    "governance": "Governance",
+    "docs": "Documentatie",
     "contact": "Contact",
     "login": "Inloggen"
   },
+
+  "common": {
+    "language": "Taal",
+    "learn_more": "Meer informatie",
+    "read_docs": "Lees de documentatie",
+    "view_github": "Bekijk op GitHub",
+    "coming_soon": "Binnenkort beschikbaar"
+  },
+
   "home": {
-    "title": "QuantumPay – Slimme Digitale Betalingen",
-    "subtitle": "Snelle, veilige en wereldwijde betaaloplossingen",
+    "title": "QuantumPay Blockchain Netwerk",
+    "subtitle": "Een next-generation Layer-1 blockchain gebouwd voor veiligheid, schaalbaarheid en regelgeving.",
+    "tagline": "Open-source. Deterministisch. Gebouwd voor de lange termijn.",
+
+    "cta_primary": "Ontdek het Netwerk",
+    "cta_secondary": "Run een Node",
+
     "features": {
-      "fast": "Snelle Transacties",
-      "fast_desc": "Verwerk betalingen in seconden met moderne technologie.",
-      "secure": "Veilig Systeem",
-      "secure_desc": "Bankniveau beveiliging voor elke transactie.",
-      "global": "Wereldwijde Toegang",
-      "global_desc": "Verzend en ontvang betalingen wereldwijd."
+      "fast": "Snel & Deterministisch",
+      "fast_desc": "Blockfinaliteit wordt binnen enkele seconden bereikt via PoS + BFT-consensus, wat voorspelbare en onomkeerbare transacties garandeert.",
+
+      "secure": "Beveiliging by Design",
+      "secure_desc": "Een cryptografie-eerst architectuur met slashing, validator-verantwoordelijkheid en een duidelijke scheiding tussen on-chain en off-chain systemen.",
+
+      "global": "Ontworpen voor Wereldwijde Adoptie",
+      "global_desc": "Ontwikkeld om regio’s te ondersteunen zonder bestaande nationale blockchain-infrastructuur, beginnend in Zuidoost-Azië en uitbreidend wereldwijd."
     }
+  },
+
+  "about": {
+    "title": "Over QuantumPay",
+    "description": "QuantumPay is een publieke Layer-1 blockchain gericht op duurzaamheid op lange termijn, laag energieverbruik en transparante governance.",
+    "mission_title": "Missie",
+    "mission_desc": "Het bieden van een veilige en neutrale blockchain-basis voor overheden, bedrijven en open netwerken."
+  },
+
+  "features": {
+    "title": "Kernfuncties",
+    "consensus": {
+      "title": "PoS + BFT Finaliteit",
+      "desc": "Validators zetten assets in en nemen deel aan Byzantine Fault Tolerant consensus om snelle en onomkeerbare finaliteit te bereiken zonder energieverspilling."
+    },
+    "architecture": {
+      "title": "Modulaire Architectuur",
+      "desc": "Een duidelijke scheiding tussen consensus, netwerken, uitvoering en off-chain services via gRPC en IPC."
+    },
+    "opensource": {
+      "title": "Standaard Open-source",
+      "desc": "Alle kerncode en protocollen zijn openlijk gepubliceerd. GitHub is de enige bron van waarheid."
+    }
+  },
+
+  "developers": {
+    "title": "Ontwikkelaars",
+    "subtitle": "Bouw direct op de QuantumPay base layer.",
+    "docs": "Ontwikkelaarsdocumentatie",
+    "run_node": "Run een Core Node",
+    "grpc": "gRPC & IPC Interfaces",
+    "sdk": "SDK’s en tools (binnenkort beschikbaar)"
+  },
+
+  "governance": {
+    "title": "Governance",
+    "description": "QuantumPay-governance geeft prioriteit aan protocolstabiliteit, transparant wijzigingsbeheer en netwerk-integriteit op lange termijn.",
+    "onchain": "On-chain governance (gepland)",
+    "offchain": "Off-chain governance via documentatie (actief)"
+  },
+
+  "network": {
+    "title": "Netwerkinformatie",
+    "name": "QuantumPay Mainnet",
+    "chain_id": "Chain ID",
+    "consensus": "Consensus",
+    "status": "Netwerkstatus",
+    "mainnet_live": "Mainnet Actief"
+  },
+
+  "contact": {
+    "title": "Contact",
+    "security": "Beveiligingsmeldingen",
+    "security_desc": "Meld beveiligingsproblemen vertrouwelijk.",
+    "email": "E-mail",
+    "note": "Er is momenteel geen officiële Telegram-, WhatsApp- of privé-DM-ondersteuning."
+  },
+
+  "footer": {
+    "copyright": "© 2026 QuantumPay Network",
+    "opensource": "Open-source blockchain netwerk",
+    "source_of_truth": "Bron van waarheid: GitHub"
   }
 }

@@ -3,19 +3,100 @@
     "home": "Home",
     "about": "About",
     "features": "Features",
+    "developers": "Developers",
+    "governance": "Governance",
+    "docs": "Documentation",
     "contact": "Contact",
     "login": "Login"
   },
+
+  "common": {
+    "language": "Language",
+    "learn_more": "Learn more",
+    "read_docs": "Read the docs",
+    "view_github": "View on GitHub",
+    "coming_soon": "Coming soon"
+  },
+
   "home": {
-    "title": "QuantumPay – Smart Digital Payments",
-    "subtitle": "Fast, secure, and global payment solutions",
+    "title": "QuantumPay Blockchain Network",
+    "subtitle": "A next-generation Layer-1 blockchain built for security, scalability, and regulatory readiness.",
+    "tagline": "Open-source. Deterministic. Built for the long term.",
+
+    "cta_primary": "Explore the Network",
+    "cta_secondary": "Run a Node",
+
     "features": {
-      "fast": "Fast Transactions",
-      "fast_desc": "Process payments in seconds with cutting-edge technology.",
-      "secure": "Secure System",
-      "secure_desc": "Bank-grade security for every transaction.",
-      "global": "Global Access",
-      "global_desc": "Send and receive payments worldwide."
+      "fast": "Fast & Deterministic",
+      "fast_desc": "Block finality is achieved within seconds using PoS + BFT consensus, ensuring predictable and irreversible transactions.",
+
+      "secure": "Security by Design",
+      "secure_desc": "Cryptography-first architecture with slashing, validator accountability, and a clear trust boundary between on-chain and off-chain systems.",
+
+      "global": "Built for Global Adoption",
+      "global_desc": "Designed to serve regions without existing national blockchain infrastructure, starting from Southeast Asia and expanding globally."
     }
+  },
+
+  "about": {
+    "title": "About QuantumPay",
+    "description": "QuantumPay is a public Layer-1 blockchain focused on long-term sustainability, low energy consumption, and transparent governance.",
+    "mission_title": "Mission",
+    "mission_desc": "To provide a secure and neutral blockchain foundation for governments, enterprises, and open networks."
+  },
+
+  "features": {
+    "title": "Core Features",
+    "consensus": {
+      "title": "PoS + BFT Finality",
+      "desc": "Validators stake assets and participate in Byzantine Fault Tolerant consensus to reach fast and irreversible finality without energy waste."
+    },
+    "architecture": {
+      "title": "Modular Architecture",
+      "desc": "Clear separation between core consensus, networking, execution, and off-chain services via gRPC and IPC."
+    },
+    "opensource": {
+      "title": "Open-source by Default",
+      "desc": "All core protocol code and specifications are published openly. GitHub is the single source of truth."
+    }
+  },
+
+  "developers": {
+    "title": "Developers",
+    "subtitle": "Build directly on the QuantumPay base layer.",
+    "docs": "Developer Documentation",
+    "run_node": "Run a Core Node",
+    "grpc": "gRPC & IPC Interfaces",
+    "sdk": "SDKs and Tooling (coming soon)"
+  },
+
+  "governance": {
+    "title": "Governance",
+    "description": "QuantumPay governance prioritizes protocol stability, transparent change control, and long-term network integrity.",
+    "onchain": "On-chain governance (planned)",
+    "offchain": "Off-chain documentation-based governance (active)"
+  },
+
+  "network": {
+    "title": "Network Information",
+    "name": "QuantumPay Mainnet",
+    "chain_id": "Chain ID",
+    "consensus": "Consensus",
+    "status": "Network Status",
+    "mainnet_live": "Mainnet Live"
+  },
+
+  "contact": {
+    "title": "Contact",
+    "security": "Security Reports",
+    "security_desc": "Please report security vulnerabilities privately.",
+    "email": "Email",
+    "note": "There is no official Telegram, WhatsApp, or private DM support at this stage."
+  },
+
+  "footer": {
+    "copyright": "© 2026 QuantumPay Network",
+    "opensource": "Open-source blockchain network",
+    "source_of_truth": "Source of truth: GitHub"
   }
 }

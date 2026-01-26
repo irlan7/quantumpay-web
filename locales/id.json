@@ -6,16 +6,51 @@
     "contact": "Kontak",
     "login": "Masuk"
   },
+
   "home": {
-    "title": "QuantumPay – Pembayaran Digital Pintar",
-    "subtitle": "Solusi pembayaran cepat, aman, dan global",
+    "title": "Jaringan Blockchain QuantumPay",
+    "subtitle": "Blockchain Layer-1 generasi berikutnya yang dibangun untuk keamanan, skalabilitas, dan kesiapan regulasi.",
+
     "features": {
-      "fast": "Transaksi Cepat",
-      "fast_desc": "Proses pembayaran hanya dalam hitungan detik.",
-      "secure": "Sistem Aman",
-      "secure_desc": "Keamanan setara perbankan.",
-      "global": "Akses Global",
-      "global_desc": "Kirim dan terima pembayaran ke seluruh dunia."
+      "fast": "Cepat",
+      "fast_desc": "Finalitas cepat dengan konsensus Proof-of-Stake dan BFT tanpa pemborosan energi.",
+
+      "secure": "Aman",
+      "secure_desc": "Kriptografi modern dengan perlindungan jangka panjang terhadap ancaman komputasi kuantum.",
+
+      "global": "Global",
+      "global_desc": "Dirancang sebagai infrastruktur blockchain publik untuk penggunaan lintas negara dan institusi."
     }
+  },
+
+  "about": {
+    "title": "Tentang QuantumPay",
+    "description": "QuantumPay adalah jaringan blockchain Layer-1 open-source yang berfokus pada stabilitas protokol, finalitas deterministik, dan desain jangka panjang."
+  },
+
+  "features": {
+    "consensus": {
+      "title": "PoS + BFT Finality",
+      "desc": "Konsensus hemat energi dengan finalitas deterministik dan keamanan tingkat jaringan."
+    },
+    "opensource": {
+      "title": "Open Source",
+      "desc": "Kode sumber tersedia untuk audit publik. GitHub adalah satu-satunya sumber kebenaran."
+    },
+    "scalability": {
+      "title": "Skalabilitas",
+      "desc": "Arsitektur modular yang mendukung pertumbuhan jaringan tanpa mengorbankan keamanan."
+    }
+  },
+
+  "contact": {
+    "title": "Kontak",
+    "email": "quantumpaysec@gmail.com",
+    "note": "Saat ini tidak ada dukungan melalui DM media sosial. Gunakan email resmi atau GitHub."
+  },
+
+  "footer": {
+    "copyright": "© QuantumPay. Semua hak dilindungi.",
+    "source": "Sumber kebenaran: GitHub"
   }
 }
