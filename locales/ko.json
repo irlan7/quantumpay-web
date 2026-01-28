@@ -1,26 +1,28 @@
 {
   "navbar": {
     "home": "홈",
-    "explorer": "탐색기",
-    "validators": "검증자",
+    "explorer": "익스플로러",
+    "validators": "밸리데이터",
+    "contact": "문의하기",
+    "legal": "법률",
     "launch_app": "앱 실행"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [동결됨]",
-    "title": "퀀텀페이 블록체인",
-    "subtitle": "고속 PoS+BFT 합의 알고리즘을 기반으로 한 Layer-1 디지털 주권 인프라.",
+    "chain_status": "체인 ID: 77077 [활성]",
+    "title": "고속 QuantumPay 블록체인",
+    "subtitle": "글로벌 금융의 미래를 위해 안전하고 투명하며 탈중앙화된 PoS+BFT 합의 알고리즘으로 디지털 주권을 구축합니다.",
     "btn_explore": "네트워크 탐색",
     "btn_run_node": "노드 실행"
   },
   "infrastructure": {
-    "title": "글로벌 탈중앙화 인프라",
-    "description": "퀀텀페이 네트워크는 프라이빗 검증 노드를 통해 3개 대륙에서 물리적으로 운영됩니다.",
+    "title": "글로벌 인프라",
+    "description": "QuantumPay 노드는 낮은 지연 시간과 최대 보안을 보장하기 위해 세계 최고의 데이터 센터에 분산되어 있습니다.",
     "card": {
       "online": "온라인",
       "latency": "지연 시간"
     }
   },
   "footer": {
-    "text": "© 2026 퀀텀페이 네트워크. 모든 시스템 정상 작동."
+    "text": "© 2026 QuantumPay 분산 원장 네트워크. 판권 소유."
   }
 }

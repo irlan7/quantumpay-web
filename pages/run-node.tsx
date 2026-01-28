@@ -1,147 +1,142 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+// --- 1. IMPORT KAMUS BAHASA ---
+import en from '../locales/en.json';
+import id from '../locales/id.json';
+import de from '../locales/de.json';
+import nl from '../locales/nl.json';
+import pt from '../locales/pt.json';
+import ko from '../locales/ko.json';
+import ar from '../locales/ar.json';
+
+// --- 2. DATA TEKNIS (Dari Source Code Asli Anda) ---
+const NETWORK_DATA = {
+  chainId: "77077",
+  genesisHash: "0x1d58599424f1159828236111f1f9e83063f66345091a99540c4989679269491a",
+  installCommand: "curl -sSL https://raw.githubusercontent.com/irlan7/quantumpay-go/master/install.sh | bash",
+  status: "Mainnet-Alpha v1.1"
+};
+
+const LANGUAGES = [
+  { code: 'en', label: '🇺🇸 EN (English)' },
+  { code: 'id', label: '🇮🇩 ID (Indonesia)' },
+  { code: 'de', label: '🇩🇪 DE (Deutsch)' },
+  { code: 'nl', label: '🇳🇱 NL (Dutch)' },
+  { code: 'pt', label: '🇵🇹 PT (Português)' },
+  { code: 'ko', label: '🇰🇷 KO (Korean)' },
+  { code: 'ar', label: '🇸🇦 AR (Arabic)' }
+];
 
 export default function RunNode() {
-  // Data Teknis Terverifikasi (Audit 27 Jan 2026)
-  const networkData = {
-    chainId: "77077",
-    genesisHash: "0x1d58599424f1159828236111f1f9e83063f66345091a99540c4989679269491a",
-    installCommand: "curl -sSL https://raw.githubusercontent.com/irlan7/quantumpay-go/master/install.sh | bash",
+  const router = useRouter();
+  const { locale } = router;
+  const tObject: any = { en, id, de, nl, pt, ko, ar };
+  const dict = tObject[locale as string] || en;
+
+  const t = (section: string, key: string) => {
+    try { return dict[section][key] || key; } catch (e) { return key; }
   };
 
-  const containerStyle: React.CSSProperties = {
-    backgroundColor: '#05070a',
-    color: '#ffffff',
-    minHeight: '100vh',
-    padding: '60px 20px',
-    fontFamily: 'Segoe UI, Roboto, Helvetica, Arial, sans-serif',
-  };
-
-  const mainWrapperStyle: React.CSSProperties = {
-    maxWidth: '900px',
-    margin: '0 auto',
-  };
-
-  const codeBoxStyle: React.CSSProperties = {
-    backgroundColor: '#0f172a',
-    padding: '20px',
-    borderRadius: '8px',
-    border: '1px solid #1e293b',
-    fontFamily: 'monospace',
-    marginBottom: '30px',
-    position: 'relative',
-  };
-
-  const tableStyle: React.CSSProperties = {
-    width: '100%',
-    borderCollapse: 'collapse',
-    marginBottom: '40px',
-    fontSize: '0.9rem',
+  const changeLanguage = (e: any) => {
+    const newLocale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale: newLocale });
   };
 
   return (
-    <div style={containerStyle}>
+    <div style={{ minHeight: '100vh', background: '#0b0f14', color: '#fff', fontFamily: 'Inter, sans-serif' }}>
       <Head>
         <title>Run a Node | QuantumPay Network</title>
-        <meta name="description" content="Bergabung dengan jaringan QuantumPay sebagai validator." />
       </Head>
 
-      <div style={mainWrapperStyle}>
-        <header style={{ marginBottom: '50px' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#3b82f6' }}>Join the Network</h1>
-          <p style={{ color: '#94a3b8' }}>
-            Ikuti panduan di bawah ini untuk menginstal dan menjalankan validator QuantumPay Anda sendiri.
-          </p>
+      {/* --- NAVBAR STANDAR (120px Logo) --- */}
+      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5%', borderBottom: '1px solid #1f2937' }}>
+        <Link href="/">
+          <img src="/logo.png" alt="QuantumPay" style={{ height: '120px', width: 'auto', cursor: 'pointer' }} />
+        </Link>
+
+        <div style={{ display: 'flex', gap: '30px', fontSize: '1rem' }}>
+          <Link href="/" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'home')}</Link>
+          <Link href="/explorer" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'explorer')}</Link>
+          <Link href="/run-node" style={{ color: '#fff', textDecoration: 'none' }}>{t('navbar', 'validators')}</Link>
+          <Link href="/contact" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'contact')}</Link>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <select onChange={changeLanguage} value={locale} style={{ background: '#1f2937', color: 'white', border: '1px solid #374151', padding: '8px 12px', borderRadius: '8px' }}>
+            {LANGUAGES.map((lang) => (
+              <option key={lang.code} value={lang.code}>{lang.label}</option>
+            ))}
+          </select>
+        </div>
+      </nav>
+
+      {/* --- CONTENT AREA --- */}
+      <main style={{ maxWidth: '900px', margin: '0 auto', padding: '60px 20px' }}>
+        <header style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h1 style={{ fontSize: '3rem', fontWeight: '900', color: '#6366f1', marginBottom: '15px' }}>Join the Network</h1>
+          <p style={{ color: '#9ca3af', fontSize: '1.1rem' }}>Ikuti panduan ini untuk menginstal dan menjalankan validator QuantumPay Anda sendiri.</p>
         </header>
 
-        {/* Section Hardware Requirements */}
-        <section style={{ marginBottom: '50px' }}>
-          <h3 style={{ borderBottom: '1px solid #1e293b', paddingBottom: '10px', marginBottom: '20px' }}>
-            Hardware Requirements
-          </h3>
-          <table style={tableStyle}>
-            <thead>
-              <tr style={{ textAlign: 'left', color: '#64748b' }}>
-                <th style={{ padding: '12px 0' }}>Spec</th>
-                <th style={{ padding: '12px 0' }}>Minimum Requirement</th>
-              </tr>
-            </thead>
+        {/* SECTION 1: HARDWARE REQUIREMENTS */}
+        <section style={{ marginBottom: '60px', background: '#111827', padding: '40px', borderRadius: '24px', border: '1px solid #1f2937' }}>
+          <h3 style={{ marginBottom: '25px', color: '#fbbf24', borderBottom: '1px solid #1f2937', paddingBottom: '10px' }}>Hardware Requirements</h3>
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <tbody>
-              <tr>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>CPU</td>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>2 Cores (Minimum)</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>RAM</td>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>4GB (Usage optimized ~5%)</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>Storage</td>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>40GB SSD</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>OS</td>
-                <td style={{ padding: '12px 0', borderBottom: '1px solid #1e293b' }}>Ubuntu 22.04 LTS / 24.04 LTS</td>
-              </tr>
+              {[
+                { label: 'CPU', val: '2 Cores (Minimum)' },
+                { label: 'RAM', val: '4GB (Usage optimized ~5%)' },
+                { label: 'Storage', val: '40GB SSD' },
+                { label: 'Network', val: '100 Mbps Up/Down' }
+              ].map((item, i) => (
+                <tr key={i} style={{ borderBottom: '1px solid #1f2937' }}>
+                  <td style={{ padding: '15px 0', color: '#9ca3af', fontWeight: 'bold' }}>{item.label}</td>
+                  <td style={{ padding: '15px 0', textAlign: 'right', color: '#fff' }}>{item.val}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>
 
-        {/* Section 1: Automated Installation */}
-        <section style={{ marginBottom: '40px' }}>
-          <h3 style={{ color: '#60a5fa', marginBottom: '15px' }}>1. Automated Installation (Recommended)</h3>
-          <div style={codeBoxStyle}>
-            <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginBottom: '10px' }}>
-              # Jalankan perintah ini di terminal Ubuntu Anda untuk instalasi otomatis v1.1
-            </p>
-            <code style={{ color: '#4ade80', wordBreak: 'break-all', fontSize: '1rem' }}>
-              {networkData.installCommand}
-            </code>
+        {/* SECTION 2: AUTOMATED INSTALLATION */}
+        <section style={{ marginBottom: '60px' }}>
+          <h3 style={{ color: '#6366f1', marginBottom: '15px' }}>1. Automated Installation (Recommended)</h3>
+          <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginBottom: '15px' }}>Jalankan perintah ini di terminal Ubuntu Anda untuk instalasi otomatis v1.1</p>
+          <div style={{ background: '#0a0d12', padding: '20px', borderRadius: '12px', border: '1px solid #6366f1', fontFamily: 'monospace', fontSize: '0.9rem', color: '#10b981', overflowX: 'auto', wordBreak: 'break-all' }}>
+            {NETWORK_DATA.installCommand}
           </div>
         </section>
 
-        {/* Section 2: Genesis Verification */}
-        <section style={{ marginBottom: '40px' }}>
-          <h3 style={{ color: '#60a5fa', marginBottom: '15px' }}>2. Genesis Verification</h3>
-          <p style={{ fontSize: '0.9rem', marginBottom: '10px', color: '#94a3b8' }}>
-            Pastikan Hash Genesis Anda cocok dengan Mainnet setelah sinkronisasi dimulai:
-          </p>
-          <div style={{ 
-            backgroundColor: 'rgba(251, 146, 60, 0.05)', 
-            padding: '20px', 
-            borderRadius: '8px',
-            borderLeft: '4px solid #fb923c',
-            fontSize: '0.85rem',
-            fontFamily: 'monospace',
-            wordBreak: 'break-all',
-            color: '#fb923c'
-          }}>
-            <strong>GENESIS_HASH:</strong> {networkData.genesisHash}
+        {/* SECTION 3: GENESIS VERIFICATION */}
+        <section style={{ marginBottom: '60px' }}>
+          <h3 style={{ color: '#6366f1', marginBottom: '15px' }}>2. Genesis Verification</h3>
+          <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginBottom: '15px' }}>Pastikan Hash Genesis Anda cocok dengan Mainnet setelah sinkronisasi dimulai.</p>
+          <div style={{ background: 'rgba(251, 146, 60, 0.05)', padding: '20px', borderRadius: '12px', borderLeft: '4px solid #fb923c', fontFamily: 'monospace', fontSize: '0.85rem', color: '#fb923c', wordBreak: 'break-all' }}>
+            <strong>GENESIS_HASH:</strong> {NETWORK_DATA.genesisHash}
           </div>
-          <p style={{ marginTop: '15px', fontSize: '0.8rem', color: '#64748b' }}>
-            Gunakan perintah <code>pm2 logs qp-node</code> untuk memverifikasi hash secara lokal.
-          </p>
         </section>
 
-        {/* Section 3: Network Identity */}
-        <section style={{ marginBottom: '40px', padding: '20px', backgroundColor: '#0f172a', borderRadius: '12px' }}>
-          <h4 style={{ marginBottom: '10px' }}>Network Identity</h4>
-          <div style={{ display: 'flex', gap: '20px', fontSize: '0.9rem' }}>
+        {/* SECTION 4: NETWORK IDENTITY */}
+        <section style={{ background: '#0f172a', padding: '30px', borderRadius: '20px', border: '1px solid #1f2937', textAlign: 'center' }}>
+          <h4 style={{ marginBottom: '20px', color: '#fff' }}>Network Identity</h4>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '40px' }}>
             <div>
-              <span style={{ color: '#64748b' }}>Chain ID:</span> 
-              <span style={{ color: '#22c55e', marginLeft: '5px' }}>{networkData.chainId} [FROZEN]</span>
+              <div style={{ color: '#9ca3af', fontSize: '0.8rem' }}>Chain ID</div>
+              <div style={{ color: '#fff', fontWeight: 'bold' }}>{NETWORK_DATA.chainId} <span style={{ color: '#ef4444', fontSize: '0.7rem' }}>[DIBEKUKAN]</span></div>
             </div>
             <div>
-              <span style={{ color: '#64748b' }}>Status:</span> 
-              <span style={{ color: '#3b82f6', marginLeft: '5px' }}>Mainnet-Alpha v1.1</span>
+              <div style={{ color: '#9ca3af', fontSize: '0.8rem' }}>Status</div>
+              <div style={{ color: '#6366f1', fontWeight: 'bold' }}>{NETWORK_DATA.status}</div>
             </div>
           </div>
         </section>
 
-        <footer style={{ marginTop: '80px', textAlign: 'center', color: '#475569', fontSize: '0.8rem' }}>
+        <footer style={{ marginTop: '80px', textAlign: 'center', color: '#4b5563', fontSize: '0.8rem' }}>
           © 2026 QuantumPay Foundation. All Rights Reserved.
         </footer>
-      </div>
+      </main>
     </div>
   );
 }

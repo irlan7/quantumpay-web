@@ -3,24 +3,26 @@
     "home": "Beranda",
     "explorer": "Explorer",
     "validators": "Validator",
+    "contact": "Kontak",
+    "legal": "Kepatuhan",
     "launch_app": "Buka Aplikasi"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [DIBEKUKAN]",
-    "title": "Blockchain QuantumPay",
-    "subtitle": "Infrastruktur kedaulatan digital berbasis Layer-1 dengan konsensus PoS+BFT berkecepatan tinggi.",
+    "chain_status": "CHAIN ID: 77077 [AKTIF]",
+    "title": "Blockchain QuantumPay Berkecepatan Tinggi",
+    "subtitle": "Membangun kedaulatan digital dengan konsensus PoS+BFT yang aman, transparan, dan terdesentralisasi untuk masa depan keuangan global.",
     "btn_explore": "Jelajahi Jaringan",
     "btn_run_node": "Jalankan Node"
   },
   "infrastructure": {
-    "title": "Infrastruktur Terdesentralisasi Global",
-    "description": "Jaringan QuantumPay beroperasi secara fisik di 3 benua melalui Node Validator Privat.",
+    "title": "Infrastruktur Global",
+    "description": "Node QuantumPay tersebar di berbagai pusat data terbaik dunia untuk menjamin latensi rendah dan keamanan maksimal.",
     "card": {
       "online": "ONLINE",
       "latency": "Latensi"
     }
   },
   "footer": {
-    "text": "© 2026 Jaringan QuantumPay. Semua sistem beroperasi normal."
+    "text": "© 2026 QuantumPay Distributed Ledger Network. Seluruh hak cipta dilindungi undang-undang."
   }
 }

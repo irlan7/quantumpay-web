@@ -3,24 +3,26 @@
     "home": "Home",
     "explorer": "Explorer",
     "validators": "Validators",
-    "launch_app": "Start App"
+    "contact": "Contact",
+    "legal": "Juridisch",
+    "launch_app": "App Starten"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [BEVROREN]",
-    "title": "QuantumPay Blockchain",
-    "subtitle": "Infrastructuur voor digitale soevereiniteit op basis van Layer-1 met snelle PoS+BFT-consensus.",
-    "btn_explore": "Verken Netwerk",
-    "btn_run_node": "Draai een Node"
+    "chain_status": "CHAIN ID: 77077 [ACTIEF]",
+    "title": "Hoge-snelheid QuantumPay Blockchain",
+    "subtitle": "Bouwen aan digitale soevereiniteit met veilige, transparante en gedecentraliseerde PoS+BFT-consensus voor de toekomst van wereldwijde financiën.",
+    "btn_explore": "Netwerk Verkennen",
+    "btn_run_node": "Node Starten"
   },
   "infrastructure": {
-    "title": "Wereldwijde Gedecentraliseerde Infrastructuur",
-    "description": "Het QuantumPay-netwerk opereert fysiek op 3 continenten via Private Validator Nodes.",
+    "title": "Wereldwijde Infrastructuur",
+    "description": "QuantumPay-nodes zijn verspreid over 's werelds beste datacenters om lage latentie en maximale veiligheid te garanderen.",
     "card": {
       "online": "ONLINE",
       "latency": "Latentie"
     }
   },
   "footer": {
-    "text": "© 2026 QuantumPay Netwerk. Alle systemen operationeel."
+    "text": "© 2026 QuantumPay Distributed Ledger Network. Alle rechten voorbehouden."
   }
 }

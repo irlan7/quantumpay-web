@@ -3,24 +3,26 @@
     "home": "Startseite",
     "explorer": "Explorer",
     "validators": "Validatoren",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
     "launch_app": "App Starten"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [EINGEFROREN]",
-    "title": "QuantumPay Blockchain",
-    "subtitle": "Infrastruktur für digitale Souveränität auf Layer-1-Basis mit Hochgeschwindigkeits-PoS+BFT-Konsens.",
+    "chain_status": "CHAIN ID: 77077 [AKTIV]",
+    "title": "Hochgeschwindigkeits-QuantumPay-Blockchain",
+    "subtitle": "Aufbau digitaler Souveränität mit sicherem, transparentem und dezentralem PoS+BFT-Konsens für die Zukunft des globalen Finanzwesens.",
     "btn_explore": "Netzwerk Erkunden",
     "btn_run_node": "Node Betreiben"
   },
   "infrastructure": {
-    "title": "Globale Dezentrale Infrastruktur",
-    "description": "Das QuantumPay-Netzwerk operiert physisch auf 3 Kontinenten über Private Validator Nodes.",
+    "title": "Globale Infrastruktur",
+    "description": "QuantumPay-Knoten sind über die weltweit besten Rechenzentren verteilt, um niedrige Latenzzeiten und maximale Sicherheit zu gewährleisten.",
     "card": {
       "online": "ONLINE",
       "latency": "Latenz"
     }
   },
   "footer": {
-    "text": "© 2026 QuantumPay Netzwerk. Alle Systeme betriebsbereit."
+    "text": "© 2026 QuantumPay Distributed Ledger Network. Alle Rechte vorbehalten."
   }
 }

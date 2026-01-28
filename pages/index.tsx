@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-// --- 1. IMPORT KAMUS BAHASA (JSON) ---
+// --- 1. IMPORT KAMUS BAHASA ---
 import en from '../locales/en.json';
 import id from '../locales/id.json';
 import de from '../locales/de.json';
@@ -12,41 +12,11 @@ import pt from '../locales/pt.json';
 import ko from '../locales/ko.json';
 import ar from '../locales/ar.json';
 
-// --- 2. DATA INFRASTRUKTUR (VPS) ---
+// --- 2. DATA INFRASTRUKTUR ---
 const NODES = [
-  {
-    id: 'GENESIS-SG1',
-    name: 'Quantum Command Center',
-    provider: 'OVH Cloud',
-    location: 'Singapore, Asia',
-    flag: '🇸🇬',
-    ip: '15.235.***.***',
-    role: 'BOOTNODE & RPC',
-    latency: '12ms',
-    type: 'primary'
-  },
-  {
-    id: 'VALIDATOR-EU1',
-    name: 'Iron Tank Validator',
-    provider: 'Contabo',
-    location: 'Frankfurt, Germany',
-    flag: '🇩🇪',
-    ip: '5.189.***.***',
-    role: 'HEAVY VALIDATOR',
-    latency: '145ms',
-    type: 'secondary'
-  },
-  {
-    id: 'VALIDATOR-US1',
-    name: 'Eagle Eye Backup',
-    provider: 'DatabaseMart',
-    location: 'Texas, USA',
-    flag: '🇺🇸',
-    ip: '38.247.***.***',
-    role: 'DISASTER RECOVERY',
-    latency: '210ms',
-    type: 'secondary'
-  }
+  { id: 'GENESIS-SG1', name: 'Quantum Command Center', provider: 'OVH Cloud', location: 'Singapore, Asia', flag: '🇸🇬', ip: '15.235.***.***', role: 'BOOTNODE & RPC', latency: '12ms' },
+  { id: 'VALIDATOR-EU1', name: 'Iron Tank Validator', provider: 'Contabo', location: 'Frankfurt, Germany', flag: '🇩🇪', ip: '5.189.***.***', role: 'HEAVY VALIDATOR', latency: '145ms' },
+  { id: 'VALIDATOR-US1', name: 'Eagle Eye Backup', provider: 'DatabaseMart', location: 'Texas, USA', flag: '🇺🇸', ip: '38.247.***.***', role: 'DISASTER RECOVERY', latency: '210ms' }
 ];
 
 const LANGUAGES = [
@@ -63,17 +33,12 @@ export default function Home() {
   const router = useRouter();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // --- 3. TRANSLATION ENGINE ---
   const { locale } = router; 
   const tObject: any = { en, id, de, nl, pt, ko, ar };
   const dict = tObject[locale as string] || en;
 
   const t = (section: string, key: string) => {
-      try {
-          return dict[section][key] || key;
-      } catch (e) {
-          return key; 
-      }
+      try { return dict[section][key] || key; } catch (e) { return key; }
   };
 
   const changeLanguage = (e: any) => {
@@ -85,50 +50,32 @@ export default function Home() {
     <div style={{minHeight: '100vh', background: '#0b0f14', color: '#fff', fontFamily: 'Inter, sans-serif', overflowX: 'hidden'}}>
       <Head>
         <title>QuantumPay | Sovereign Layer-1 Blockchain</title>
-        <meta name="description" content="QuantumPay Distributed Ledger Network" />
       </Head>
 
       {/* --- NAVBAR --- */}
-      <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 5%', borderBottom: '1px solid #1f2937'}}>
-        
-        <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
-            {/* LOGO PNG PERBESAR - SEKARANG 100PX AGAR TERLIHAT GAGAH */}
-            <img 
-              src="/logo.png" 
-              alt="QuantumPay Logo" 
-              style={{
-                  height: '100px', 
-                  width: 'auto', 
-                  objectFit: 'contain',
-                  marginTop: '-5px'
-              }} 
-            />
+      <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5%', borderBottom: '1px solid #1f2937'}}>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+            <img src="/logo.png" alt="Logo" style={{height: '120px', width: 'auto'}} />
         </div>
 
-        {/* MENU NAVIGASI */}
-        <div style={{display: 'flex', gap: '30px', fontSize: '0.95rem', fontWeight: '500'}}>
+        {/* MENU NAVIGASI DENGAN LINK LEGAL */}
+        <div style={{display: 'flex', gap: '25px', fontSize: '0.95rem'}}>
             <Link href="/" style={{color: '#fff', textDecoration: 'none'}}>{t('navbar', 'home')}</Link>
-            <Link href="/explorer" style={{color: '#9ca3af', textDecoration: 'none', transition: '0.3s'}}>{t('navbar', 'explorer')}</Link>
-            <Link href="/run-node" style={{color: '#9ca3af', textDecoration: 'none', transition: '0.3s'}}>{t('navbar', 'validators')}</Link>
+            <Link href="/explorer" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'explorer')}</Link>
+            <Link href="/run-node" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'validators')}</Link>
+            <Link href="/contact" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'contact')}</Link>
+            {/* LINK LEGAL BARU */}
+            <Link href="/legal" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'legal')}</Link>
         </div>
 
-        {/* BAHASA & CTA */}
         <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
-            <select 
-                onChange={changeLanguage}
-                value={locale} 
-                style={{
-                    background: '#1f2937', color: 'white', border: '1px solid #374151', 
-                    padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', outline: 'none'
-                }}
-            >
+            <select onChange={changeLanguage} value={locale} style={{background: '#1f2937', color: 'white', border: '1px solid #374151', padding: '8px', borderRadius: '8px'}}>
                 {LANGUAGES.map((lang) => (
                     <option key={lang.code} value={lang.code}>{lang.label}</option>
                 ))}
             </select>
-
             <Link href="/wallet">
-                <button style={{padding: '10px 24px', background: '#6366f1', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', transition: '0.3s'}}>
+                <button style={{padding: '10px 20px', background: '#6366f1', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold'}}>
                     {t('navbar', 'launch_app')} 🚀
                 </button>
             </Link>
@@ -140,72 +87,28 @@ export default function Home() {
         <div style={{marginBottom: '15px', color: '#6366f1', letterSpacing: '3px', fontSize: '0.85rem', fontWeight: '800'}}>
             {t('hero', 'chain_status')}
         </div>
-        
-        <h1 style={{fontSize: '4rem', marginBottom: '25px', lineHeight: '1.1', fontWeight: '900'}}>
-           {t('hero', 'title')}
-        </h1>
-        
-        <p style={{fontSize: '1.25rem', color: '#9ca3af', maxWidth: '800px', margin: '0 auto 45px', lineHeight: '1.6'}}>
-           {t('hero', 'subtitle')}
-        </p>
+        <h1 style={{fontSize: '4.5rem', marginBottom: '25px', fontWeight: '900'}}>{t('hero', 'title')}</h1>
+        <p style={{fontSize: '1.3rem', color: '#9ca3af', maxWidth: '850px', margin: '0 auto 50px', lineHeight: '1.6'}}>{t('hero', 'subtitle')}</p>
 
         <div style={{display: 'flex', gap: '20px', justifyContent: 'center', marginBottom: '100px'}}>
             <Link href="/explorer">
-                <button style={{padding: '18px 40px', fontSize: '1.1rem', borderRadius: '50px', cursor: 'pointer', border: 'none', fontWeight: 'bold', background: '#6366f1', color: 'white', boxShadow: '0 0 25px rgba(99, 102, 241, 0.5)'}}>
-                    {t('hero', 'btn_explore')} 🌐
-                </button>
+                <button style={{padding: '20px 45px', borderRadius: '50px', cursor: 'pointer', border: 'none', fontWeight: 'bold', background: '#6366f1', color: 'white', boxShadow: '0 0 25px rgba(99, 102, 241, 0.4)'}}>{t('hero', 'btn_explore')}</button>
             </Link>
             <Link href="/run-node">
-                <button style={{padding: '18px 40px', fontSize: '1.1rem', borderRadius: '50px', cursor: 'pointer', fontWeight: 'bold', background: 'transparent', border: '1px solid #4b5563', color: '#fff', transition: '0.3s'}}>
-                    {t('hero', 'btn_run_node')} ⚡
-                </button>
+                <button style={{padding: '20px 45px', borderRadius: '50px', cursor: 'pointer', fontWeight: 'bold', background: 'transparent', border: '1px solid #4b5563', color: '#fff'}}>{t('hero', 'btn_run_node')}</button>
             </Link>
         </div>
 
-        {/* --- INFRASTRUCTURE SECTION --- */}
-        <div style={{textAlign: 'left', maxWidth: '1200px', margin: '0 auto'}}>
-            <h2 style={{textAlign: 'center', marginBottom: '10px', borderTop: '1px solid #1f2937', paddingTop: '60px', fontSize: '2rem'}}>
-                {t('infrastructure', 'title')}
-            </h2>
-            <p style={{textAlign: 'center', color: '#9ca3af', marginBottom: '50px', fontSize: '1.1rem'}}>
-                {t('infrastructure', 'description')}
-            </p>
-
+        {/* --- INFRASTRUCTURE CARDS --- */}
+        <div style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'left'}}>
+            <h2 style={{textAlign: 'center', marginBottom: '50px'}}>{t('infrastructure', 'title')}</h2>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px'}}>
                 {NODES.map((node, index) => (
-                    <div 
-                        key={index}
-                        onMouseEnter={() => setHoveredCard(index)}
-                        onMouseLeave={() => setHoveredCard(null)}
-                        style={{
-                            background: '#111827', 
-                            border: hoveredCard === index ? '1px solid #6366f1' : '1px solid #1f2937', 
-                            borderRadius: '20px', 
-                            padding: '30px', 
-                            transition: '0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)', 
-                            position: 'relative',
-                            transform: hoveredCard === index ? 'translateY(-10px)' : 'translateY(0)'
-                        }}
-                    >
-                        <div style={{position: 'absolute', top: '25px', right: '25px', display: 'flex', alignItems: 'center', gap: '8px'}}>
-                            <div style={{width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981'}}></div>
-                            <span style={{fontSize: '0.75rem', color: '#10b981', fontWeight: '900'}}>{t('infrastructure', 'card').online}</span>
-                        </div>
-                        <div style={{color: '#6366f1', fontSize: '0.8rem', fontWeight: '900', textTransform: 'uppercase', marginBottom: '10px', letterSpacing: '1px'}}>{node.role}</div>
-                        <h3 style={{fontSize: '1.5rem', margin: '0 0 15px 0', color: '#fff', fontWeight: 'bold'}}>{node.name}</h3>
-                        <div style={{fontSize: '1rem', color: '#d1d5db', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <span>{node.flag}</span> {node.location}
-                        </div>
-                        <div style={{background: '#0a0d12', padding: '20px', borderRadius: '12px', fontSize: '0.9rem', color: '#9ca3af', fontFamily: 'monospace', border: '1px solid #1f2937'}}>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '8px'}}>
-                                <span>Provider:</span> <span style={{color: '#fff'}}>{node.provider}</span>
-                            </div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '8px'}}>
-                                <span>IP Addr:</span> <span style={{color: '#fff'}}>{node.ip}</span>
-                            </div>
-                            <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <span>{t('infrastructure', 'card').latency}:</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>{node.latency}</span>
-                            </div>
+                    <div key={index} onMouseEnter={() => setHoveredCard(index)} onMouseLeave={() => setHoveredCard(null)} style={{background: '#111827', border: hoveredCard === index ? '1px solid #6366f1' : '1px solid #1f2937', borderRadius: '20px', padding: '30px', transition: '0.3s'}}>
+                        <h3 style={{color: '#fff', marginBottom: '10px'}}>{node.name}</h3>
+                        <p style={{color: '#9ca3af', fontSize: '0.9rem'}}>{node.flag} {node.location}</p>
+                        <div style={{marginTop: '20px', background: '#0a0d12', padding: '15px', borderRadius: '12px', fontSize: '0.85rem', fontFamily: 'monospace'}}>
+                            <div style={{color: '#10b981'}}>Latency: {node.latency}</div>
                         </div>
                     </div>
                 ))}
@@ -213,8 +116,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* FOOTER */}
-      <footer style={{textAlign: 'center', padding: '60px 20px', color: '#4b5563', borderTop: '1px solid #1f2937', marginTop: '80px', fontSize: '0.95rem'}}>
+      <footer style={{textAlign: 'center', padding: '60px', borderTop: '1px solid #1f2937', color: '#4b5563'}}>
         {t('footer', 'text')}
       </footer>
     </div>
