@@ -1,56 +1,26 @@
 {
-  "nav": {
+  "navbar": {
     "home": "Beranda",
-    "about": "Tentang",
-    "features": "Fitur",
-    "contact": "Kontak",
-    "login": "Masuk"
+    "explorer": "Explorer",
+    "validators": "Validator",
+    "launch_app": "Buka Aplikasi"
   },
-
-  "home": {
-    "title": "Jaringan Blockchain QuantumPay",
-    "subtitle": "Blockchain Layer-1 generasi berikutnya yang dibangun untuk keamanan, skalabilitas, dan kesiapan regulasi.",
-
-    "features": {
-      "fast": "Cepat",
-      "fast_desc": "Finalitas cepat dengan konsensus Proof-of-Stake dan BFT tanpa pemborosan energi.",
-
-      "secure": "Aman",
-      "secure_desc": "Kriptografi modern dengan perlindungan jangka panjang terhadap ancaman komputasi kuantum.",
-
-      "global": "Global",
-      "global_desc": "Dirancang sebagai infrastruktur blockchain publik untuk penggunaan lintas negara dan institusi."
+  "hero": {
+    "chain_status": "CHAIN ID: 77077 [DIBEKUKAN]",
+    "title": "Blockchain QuantumPay",
+    "subtitle": "Infrastruktur kedaulatan digital berbasis Layer-1 dengan konsensus PoS+BFT berkecepatan tinggi.",
+    "btn_explore": "Jelajahi Jaringan",
+    "btn_run_node": "Jalankan Node"
+  },
+  "infrastructure": {
+    "title": "Infrastruktur Terdesentralisasi Global",
+    "description": "Jaringan QuantumPay beroperasi secara fisik di 3 benua melalui Node Validator Privat.",
+    "card": {
+      "online": "ONLINE",
+      "latency": "Latensi"
     }
   },
-
-  "about": {
-    "title": "Tentang QuantumPay",
-    "description": "QuantumPay adalah jaringan blockchain Layer-1 open-source yang berfokus pada stabilitas protokol, finalitas deterministik, dan desain jangka panjang."
-  },
-
-  "features": {
-    "consensus": {
-      "title": "PoS + BFT Finality",
-      "desc": "Konsensus hemat energi dengan finalitas deterministik dan keamanan tingkat jaringan."
-    },
-    "opensource": {
-      "title": "Open Source",
-      "desc": "Kode sumber tersedia untuk audit publik. GitHub adalah satu-satunya sumber kebenaran."
-    },
-    "scalability": {
-      "title": "Skalabilitas",
-      "desc": "Arsitektur modular yang mendukung pertumbuhan jaringan tanpa mengorbankan keamanan."
-    }
-  },
-
-  "contact": {
-    "title": "Kontak",
-    "email": "quantumpaysec@gmail.com",
-    "note": "Saat ini tidak ada dukungan melalui DM media sosial. Gunakan email resmi atau GitHub."
-  },
-
   "footer": {
-    "copyright": "© QuantumPay. Semua hak dilindungi.",
-    "source": "Sumber kebenaran: GitHub"
+    "text": "© 2026 Jaringan QuantumPay. Semua sistem beroperasi normal."
   }
 }

@@ -1,75 +1,222 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import Navbar from '../components/layout/Navbar'
+import React, { useState } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-const Home: NextPage = () => {
+// --- 1. IMPORT KAMUS BAHASA (JSON) ---
+import en from '../locales/en.json';
+import id from '../locales/id.json';
+import de from '../locales/de.json';
+import nl from '../locales/nl.json';
+import pt from '../locales/pt.json';
+import ko from '../locales/ko.json';
+import ar from '../locales/ar.json';
+
+// --- 2. DATA INFRASTRUKTUR (VPS) ---
+const NODES = [
+  {
+    id: 'GENESIS-SG1',
+    name: 'Quantum Command Center',
+    provider: 'OVH Cloud',
+    location: 'Singapore, Asia',
+    flag: '🇸🇬',
+    ip: '15.235.***.***',
+    role: 'BOOTNODE & RPC',
+    latency: '12ms',
+    type: 'primary'
+  },
+  {
+    id: 'VALIDATOR-EU1',
+    name: 'Iron Tank Validator',
+    provider: 'Contabo',
+    location: 'Frankfurt, Germany',
+    flag: '🇩🇪',
+    ip: '5.189.***.***',
+    role: 'HEAVY VALIDATOR',
+    latency: '145ms',
+    type: 'secondary'
+  },
+  {
+    id: 'VALIDATOR-US1',
+    name: 'Eagle Eye Backup',
+    provider: 'DatabaseMart',
+    location: 'Texas, USA',
+    flag: '🇺🇸',
+    ip: '38.247.***.***',
+    role: 'DISASTER RECOVERY',
+    latency: '210ms',
+    type: 'secondary'
+  }
+];
+
+const LANGUAGES = [
+  { code: 'en', label: '🇺🇸 EN (English)' },
+  { code: 'id', label: '🇮🇩 ID (Indonesia)' },
+  { code: 'de', label: '🇩🇪 DE (Deutsch)' },
+  { code: 'nl', label: '🇳🇱 NL (Dutch)' },
+  { code: 'pt', label: '🇵🇹 PT (Português)' },
+  { code: 'ko', label: '🇰🇷 KO (Korean)' },
+  { code: 'ar', label: '🇸🇦 AR (Arabic)' }
+];
+
+export default function Home() {
+  const router = useRouter();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  // --- 3. TRANSLATION ENGINE ---
+  const { locale } = router; 
+  const tObject: any = { en, id, de, nl, pt, ko, ar };
+  const dict = tObject[locale as string] || en;
+
+  const t = (section: string, key: string) => {
+      try {
+          return dict[section][key] || key;
+      } catch (e) {
+          return key; 
+      }
+  };
+
+  const changeLanguage = (e: any) => {
+    const newLocale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale: newLocale });
+  };
+
   return (
-    <div style={{ backgroundColor: '#05070a', color: '#ffffff', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{minHeight: '100vh', background: '#0b0f14', color: '#fff', fontFamily: 'Inter, sans-serif', overflowX: 'hidden'}}>
       <Head>
-        <title>QuantumPay | Sovereign Layer-1 Network</title>
+        <title>QuantumPay | Sovereign Layer-1 Blockchain</title>
+        <meta name="description" content="QuantumPay Distributed Ledger Network" />
       </Head>
-      
-      <Navbar />
 
-      <main className="container" style={{ paddingTop: '100px' }}>
-        <section style={{ textAlign: 'center', padding: '80px 20px' }}>
-          <h1 style={{ fontSize: '4rem', fontWeight: '900', letterSpacing: '-0.05em', marginBottom: '24px' }}>
-            QuantumPay Blockchain
-          </h1>
-          <p style={{ color: '#94a3b8', fontSize: '1.4rem', maxWidth: '750px', margin: '0 auto', lineHeight: '1.6' }}>
-            Infrastruktur kedaulatan digital berbasis Layer-1 dengan konsensus BFT berkecepatan tinggi. 
-            <span style={{ color: '#3b82f6', display: 'block', marginTop: '10px', fontWeight: 'bold' }}>
-              Chain ID: 77077 [FROZEN]
-            </span>
-          </p>
+      {/* --- NAVBAR --- */}
+      <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 5%', borderBottom: '1px solid #1f2937'}}>
+        
+        <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
+            {/* LOGO PNG PERBESAR - SEKARANG 100PX AGAR TERLIHAT GAGAH */}
+            <img 
+              src="/logo.png" 
+              alt="QuantumPay Logo" 
+              style={{
+                  height: '100px', 
+                  width: 'auto', 
+                  objectFit: 'contain',
+                  marginTop: '-5px'
+              }} 
+            />
+        </div>
 
-          <div style={{ marginTop: '40px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
-            {/* Perbaikan: Menghapus tag <a> manual untuk menghindari Runtime Error */}
-            <Link href="/explorer" className="button" style={{ 
-                backgroundColor: '#3b82f6', color: 'white', padding: '18px 36px', 
-                borderRadius: '12px', fontWeight: '800', textDecoration: 'none',
-                boxShadow: '0 4px 14px 0 rgba(59, 130, 246, 0.39)'
-              }}>
-                Explore the Network
+        {/* MENU NAVIGASI */}
+        <div style={{display: 'flex', gap: '30px', fontSize: '0.95rem', fontWeight: '500'}}>
+            <Link href="/" style={{color: '#fff', textDecoration: 'none'}}>{t('navbar', 'home')}</Link>
+            <Link href="/explorer" style={{color: '#9ca3af', textDecoration: 'none', transition: '0.3s'}}>{t('navbar', 'explorer')}</Link>
+            <Link href="/run-node" style={{color: '#9ca3af', textDecoration: 'none', transition: '0.3s'}}>{t('navbar', 'validators')}</Link>
+        </div>
+
+        {/* BAHASA & CTA */}
+        <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
+            <select 
+                onChange={changeLanguage}
+                value={locale} 
+                style={{
+                    background: '#1f2937', color: 'white', border: '1px solid #374151', 
+                    padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', outline: 'none'
+                }}
+            >
+                {LANGUAGES.map((lang) => (
+                    <option key={lang.code} value={lang.code}>{lang.label}</option>
+                ))}
+            </select>
+
+            <Link href="/wallet">
+                <button style={{padding: '10px 24px', background: '#6366f1', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', transition: '0.3s'}}>
+                    {t('navbar', 'launch_app')} 🚀
+                </button>
             </Link>
+        </div>
+      </nav>
 
-            <Link href="/run-node" className="button secondary" style={{ 
-                border: '1px solid #334155', color: '#f1f5f9', padding: '18px 36px', 
-                borderRadius: '12px', fontWeight: '800', textDecoration: 'none'
-              }}>
-                Run a Node
+      {/* --- HERO SECTION --- */}
+      <main style={{textAlign: 'center', padding: '100px 20px'}}>
+        <div style={{marginBottom: '15px', color: '#6366f1', letterSpacing: '3px', fontSize: '0.85rem', fontWeight: '800'}}>
+            {t('hero', 'chain_status')}
+        </div>
+        
+        <h1 style={{fontSize: '4rem', marginBottom: '25px', lineHeight: '1.1', fontWeight: '900'}}>
+           {t('hero', 'title')}
+        </h1>
+        
+        <p style={{fontSize: '1.25rem', color: '#9ca3af', maxWidth: '800px', margin: '0 auto 45px', lineHeight: '1.6'}}>
+           {t('hero', 'subtitle')}
+        </p>
+
+        <div style={{display: 'flex', gap: '20px', justifyContent: 'center', marginBottom: '100px'}}>
+            <Link href="/explorer">
+                <button style={{padding: '18px 40px', fontSize: '1.1rem', borderRadius: '50px', cursor: 'pointer', border: 'none', fontWeight: 'bold', background: '#6366f1', color: 'white', boxShadow: '0 0 25px rgba(99, 102, 241, 0.5)'}}>
+                    {t('hero', 'btn_explore')} 🌐
+                </button>
             </Link>
-          </div>
-        </section>
+            <Link href="/run-node">
+                <button style={{padding: '18px 40px', fontSize: '1.1rem', borderRadius: '50px', cursor: 'pointer', fontWeight: 'bold', background: 'transparent', border: '1px solid #4b5563', color: '#fff', transition: '0.3s'}}>
+                    {t('hero', 'btn_run_node')} ⚡
+                </button>
+            </Link>
+        </div>
 
-        {/* Technical Stats Section */}
-        <section style={{ 
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '24px', padding: '40px 20px' 
-        }}>
-          <div style={{ padding: '32px', border: '1px solid #1e293b', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.5)' }}>
-            <h3 style={{ color: '#3b82f6', marginBottom: '12px' }}>Network Finality</h3>
-            <p style={{ color: '#94a3b8' }}>Konfirmasi blok instan dalam hitungan detik, dioptimalkan untuk skalabilitas sistem pembayaran global.</p>
-          </div>
-          <div style={{ padding: '32px', border: '1px solid #1e293b', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.5)' }}>
-            <h3 style={{ color: '#3b82f6', marginBottom: '12px' }}>Native Core</h3>
-            <p style={{ color: '#94a3b8' }}>Dibangun menggunakan Go-Lang v1.1 untuk performa concurrency maksimal dan penggunaan memori yang efisien.</p>
-          </div>
-          <div style={{ padding: '32px', border: '1px solid #1e293b', borderRadius: '16px', background: 'rgba(15, 23, 42, 0.5)' }}>
-            <h3 style={{ color: '#3b82f6', marginBottom: '12px' }}>Secure Nodes</h3>
-            <p style={{ color: '#94a3b8' }}>Keamanan tingkat tinggi dengan aturan firewall yang diperketat untuk melindungi integritas validator.</p>
-          </div>
-        </section>
+        {/* --- INFRASTRUCTURE SECTION --- */}
+        <div style={{textAlign: 'left', maxWidth: '1200px', margin: '0 auto'}}>
+            <h2 style={{textAlign: 'center', marginBottom: '10px', borderTop: '1px solid #1f2937', paddingTop: '60px', fontSize: '2rem'}}>
+                {t('infrastructure', 'title')}
+            </h2>
+            <p style={{textAlign: 'center', color: '#9ca3af', marginBottom: '50px', fontSize: '1.1rem'}}>
+                {t('infrastructure', 'description')}
+            </p>
+
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px'}}>
+                {NODES.map((node, index) => (
+                    <div 
+                        key={index}
+                        onMouseEnter={() => setHoveredCard(index)}
+                        onMouseLeave={() => setHoveredCard(null)}
+                        style={{
+                            background: '#111827', 
+                            border: hoveredCard === index ? '1px solid #6366f1' : '1px solid #1f2937', 
+                            borderRadius: '20px', 
+                            padding: '30px', 
+                            transition: '0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)', 
+                            position: 'relative',
+                            transform: hoveredCard === index ? 'translateY(-10px)' : 'translateY(0)'
+                        }}
+                    >
+                        <div style={{position: 'absolute', top: '25px', right: '25px', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                            <div style={{width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981'}}></div>
+                            <span style={{fontSize: '0.75rem', color: '#10b981', fontWeight: '900'}}>{t('infrastructure', 'card').online}</span>
+                        </div>
+                        <div style={{color: '#6366f1', fontSize: '0.8rem', fontWeight: '900', textTransform: 'uppercase', marginBottom: '10px', letterSpacing: '1px'}}>{node.role}</div>
+                        <h3 style={{fontSize: '1.5rem', margin: '0 0 15px 0', color: '#fff', fontWeight: 'bold'}}>{node.name}</h3>
+                        <div style={{fontSize: '1rem', color: '#d1d5db', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <span>{node.flag}</span> {node.location}
+                        </div>
+                        <div style={{background: '#0a0d12', padding: '20px', borderRadius: '12px', fontSize: '0.9rem', color: '#9ca3af', fontFamily: 'monospace', border: '1px solid #1f2937'}}>
+                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '8px'}}>
+                                <span>Provider:</span> <span style={{color: '#fff'}}>{node.provider}</span>
+                            </div>
+                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '8px'}}>
+                                <span>IP Addr:</span> <span style={{color: '#fff'}}>{node.ip}</span>
+                            </div>
+                            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                <span>{t('infrastructure', 'card').latency}:</span> <span style={{color: '#10b981', fontWeight: 'bold'}}>{node.latency}</span>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '60px 0', borderTop: '1px solid #1e293b', marginTop: '60px' }}>
-        <p style={{ color: '#475569', fontSize: '0.9rem' }}>
-          © 2026 QuantumPay Network – Distributed Ledger Technology
-        </p>
+      {/* FOOTER */}
+      <footer style={{textAlign: 'center', padding: '60px 20px', color: '#4b5563', borderTop: '1px solid #1f2937', marginTop: '80px', fontSize: '0.95rem'}}>
+        {t('footer', 'text')}
       </footer>
     </div>
-  )
+  );
 }
-
-export default Home

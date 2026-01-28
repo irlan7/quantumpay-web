@@ -1,102 +1,26 @@
 {
-  "nav": {
+  "navbar": {
     "home": "Startseite",
-    "about": "Über uns",
-    "features": "Funktionen",
-    "developers": "Entwickler",
-    "governance": "Governance",
-    "docs": "Dokumentation",
-    "contact": "Kontakt",
-    "login": "Anmelden"
+    "explorer": "Explorer",
+    "validators": "Validatoren",
+    "launch_app": "App Starten"
   },
-
-  "common": {
-    "language": "Sprache",
-    "learn_more": "Mehr erfahren",
-    "read_docs": "Dokumentation lesen",
-    "view_github": "Auf GitHub ansehen",
-    "coming_soon": "Demnächst verfügbar"
+  "hero": {
+    "chain_status": "CHAIN ID: 77077 [EINGEFROREN]",
+    "title": "QuantumPay Blockchain",
+    "subtitle": "Infrastruktur für digitale Souveränität auf Layer-1-Basis mit Hochgeschwindigkeits-PoS+BFT-Konsens.",
+    "btn_explore": "Netzwerk Erkunden",
+    "btn_run_node": "Node Betreiben"
   },
-
-  "home": {
-    "title": "QuantumPay Blockchain-Netzwerk",
-    "subtitle": "Eine Layer-1-Blockchain der nächsten Generation, entwickelt für Sicherheit, Skalierbarkeit und regulatorische Einsatzfähigkeit.",
-    "tagline": "Open Source. Deterministisch. Für den langfristigen Einsatz konzipiert.",
-
-    "cta_primary": "Netzwerk erkunden",
-    "cta_secondary": "Node betreiben",
-
-    "features": {
-      "fast": "Schnell & deterministisch",
-      "fast_desc": "Block-Finalität wird innerhalb weniger Sekunden durch PoS- und BFT-Konsens erreicht und gewährleistet vorhersehbare sowie irreversible Transaktionen.",
-
-      "secure": "Sicherheit durch Design",
-      "secure_desc": "Eine kryptografieorientierte Architektur mit Slashing-Mechanismen, Validator-Verantwortung und klarer Trennung zwischen On-Chain- und Off-Chain-Systemen.",
-
-      "global": "Für globale Nutzung entwickelt",
-      "global_desc": "Konzipiert zur Unterstützung von Regionen ohne bestehende nationale Blockchain-Infrastruktur, beginnend in Südostasien mit globaler Ausrichtung."
+  "infrastructure": {
+    "title": "Globale Dezentrale Infrastruktur",
+    "description": "Das QuantumPay-Netzwerk operiert physisch auf 3 Kontinenten über Private Validator Nodes.",
+    "card": {
+      "online": "ONLINE",
+      "latency": "Latenz"
     }
   },
-
-  "about": {
-    "title": "Über QuantumPay",
-    "description": "QuantumPay ist eine öffentliche Layer-1-Blockchain mit Fokus auf langfristige Nachhaltigkeit, niedrigen Energieverbrauch und transparente Governance.",
-    "mission_title": "Mission",
-    "mission_desc": "Bereitstellung einer sicheren und neutralen Blockchain-Grundlage für Regierungen, Unternehmen und offene Netzwerke."
-  },
-
-  "features": {
-    "title": "Kernfunktionen",
-    "consensus": {
-      "title": "PoS + BFT-Finalität",
-      "desc": "Validatoren hinterlegen Einsätze und nehmen an einem byzantinisch fehlertoleranten Konsens teil, um schnelle und irreversible Finalität ohne Energieverschwendung zu erreichen."
-    },
-    "architecture": {
-      "title": "Modulare Architektur",
-      "desc": "Klare Trennung zwischen Kernkonsens, Netzwerk, Ausführung und Off-Chain-Diensten über gRPC- und IPC-Schnittstellen."
-    },
-    "opensource": {
-      "title": "Open Source als Standard",
-      "desc": "Der gesamte Kernprotokoll-Code und die Spezifikationen sind öffentlich verfügbar. GitHub dient als einzige maßgebliche Quelle."
-    }
-  },
-
-  "developers": {
-    "title": "Entwickler",
-    "subtitle": "Entwickeln Sie direkt auf der QuantumPay-Basisschicht.",
-    "docs": "Entwicklerdokumentation",
-    "run_node": "Core-Node betreiben",
-    "grpc": "gRPC- & IPC-Schnittstellen",
-    "sdk": "SDKs und Tools (demnächst)"
-  },
-
-  "governance": {
-    "title": "Governance",
-    "description": "Die Governance von QuantumPay legt den Schwerpunkt auf Protokollstabilität, transparente Änderungsprozesse und langfristige Netzwerkintegrität.",
-    "onchain": "On-Chain-Governance (geplant)",
-    "offchain": "Off-Chain-Governance auf Dokumentationsbasis (aktiv)"
-  },
-
-  "network": {
-    "title": "Netzwerkinformationen",
-    "name": "QuantumPay Mainnet",
-    "chain_id": "Chain-ID",
-    "consensus": "Konsensmechanismus",
-    "status": "Netzwerkstatus",
-    "mainnet_live": "Mainnet aktiv"
-  },
-
-  "contact": {
-    "title": "Kontakt",
-    "security": "Sicherheitsmeldungen",
-    "security_desc": "Bitte melden Sie Sicherheitslücken vertraulich.",
-    "email": "E-Mail",
-    "note": "Derzeit gibt es keinen offiziellen Telegram-, WhatsApp- oder privaten Direktnachrichten-Support."
-  },
-
   "footer": {
-    "copyright": "© 2026 QuantumPay Network",
-    "opensource": "Open-Source-Blockchain-Netzwerk",
-    "source_of_truth": "Maßgebliche Quelle: GitHub"
+    "text": "© 2026 QuantumPay Netzwerk. Alle Systeme betriebsbereit."
   }
 }
