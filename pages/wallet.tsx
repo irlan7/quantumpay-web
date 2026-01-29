@@ -1,125 +1,222 @@
-import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import React, { useState, useEffect, useMemo } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 
-// --- 1. IMPORT KAMUS BAHASA (Update Hari Ini) ---
-import en from '../locales/en.json';
-import id from '../locales/id.json';
-import de from '../locales/de.json';
-import nl from '../locales/nl.json';
-import pt from '../locales/pt.json';
-import ko from '../locales/ko.json';
-import ar from '../locales/ar.json';
+// --- PATH ASSET (Sesuai Struktur Folder Bapak) ---
+const getIconPath = (symbol: string) => `/networks/svg/icon/${symbol.toLowerCase()}.svg`;
 
-const LANGUAGES = [
-  { code: 'en', label: '🇺🇸 EN (English)' },
-  { code: 'id', label: '🇮🇩 ID (Indonesia)' },
-  { code: 'de', label: '🇩🇪 DE (Deutsch)' },
-  { code: 'nl', label: '🇳🇱 NL (Dutch)' },
-  { code: 'pt', label: '🇵🇹 PT (Português)' },
-  { code: 'ko', label: '🇰🇷 KO (Korean)' },
-  { code: 'ar', label: '🇸🇦 AR (Arabic)' }
+// --- DATABASE JARINGAN ---
+const NETWORK_DATABASE = [
+  { name: "Arbitrum One", symbol: "ARB", type: "L2", status: "live" },
+  { name: "Avalanche C", symbol: "AVAX", type: "L1", status: "live" },
+  { name: "Bitcoin PoW", symbol: "BTC", type: "BTC", status: "preview" },
+  { name: "BNB Smart Chain", symbol: "BNB", type: "BSC", status: "live" },
+  { name: "Ethereum Mainnet", symbol: "ETH", type: "L1", status: "live" },
+  { name: "Solana SOL", symbol: "SOL", type: "L1", status: "preview" },
+  { name: "Polygon Matic", symbol: "MATIC", type: "L2", status: "live" },
+  { name: "Tether USDT", symbol: "USDT", type: "STABLE", status: "live" },
+  { name: "Tron TRX", symbol: "TRX", type: "L1", status: "live" },
 ];
 
-export default function WalletUI() {
-  const router = useRouter();
-  const { locale } = router;
-  const tObject: any = { en, id, de, nl, pt, ko, ar };
-  const dict = tObject[locale as string] || en;
+const QuantumSovereignApp = () => {
+  // --- STATES (KEEP LOGIC UNCHANGED) ---
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [mnemonicInput, setMnemonicInput] = useState("");
+  const [showModal, setShowModal] = useState(null);
+  const [isSigning, setIsSigning] = useState(false);
+  const [fiatPrice, setFiatPrice] = useState(1934.30);
+  
+  // Bridge States (SafePal Style)
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [favorites, setFavorites] = useState<string[]>(["BNB", "BTC"]);
 
-  // --- 2. STATES (Tetap Pertahankan Logika Backend Anda) ---
-  const [wallet, setWallet] = useState<any>(null);
-  const [balance, setBalance] = useState<number>(0);
-  const [history, setHistory] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [mnemonic, setMnemonic] = useState<string | null>(null);
+  const VALID_KEY = "diesel club wagon shaft aerobic history slush capable crisp video clerk rebel";
+  const myAddress = "0x74124379854723984723984QuantumPayV45";
 
-  const t = (section: string, key: string) => {
-    try { return dict[section][key] || key; } catch (e) { return key; }
-  };
-
-  const changeLanguage = (e: any) => {
-    const newLocale = e.target.value;
-    router.push(router.pathname, router.asPath, { locale: newLocale });
-  };
-
-  // --- 3. LOGIKA BACKEND (Sesuai Screenshot 5f2c & 45d5) ---
+  // Live Price Pulse
   useEffect(() => {
-    const savedData = localStorage.getItem('quantum_wallet');
-    if (savedData) {
-      const parsedWallet = JSON.parse(savedData);
-      setWallet(parsedWallet);
-      fetchBalance(parsedWallet.address);
-    }
+    const interval = setInterval(() => { 
+      setFiatPrice(prev => prev + (Math.random() * 0.4 - 0.2)); 
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
-  const fetchBalance = async (addr: string) => {
-    try {
-      const res = await fetch(`http://localhost:8080/balance?address=${addr}`);
-      const data = await res.json();
-      setBalance(data.balance);
-    } catch (e) { console.error("Gagal load saldo"); }
+  // --- LOGIC: FAVORITES & ALPHABETICAL SORT ---
+  const processedNetworks = useMemo(() => {
+    const filtered = NETWORK_DATABASE.filter(net => {
+      const matchesSearch = net.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            net.symbol.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = activeCategory === "All" || net.type === activeCategory;
+      return matchesSearch && matchesCategory;
+    });
+
+    return filtered.sort((a, b) => {
+      const isAFav = favorites.includes(a.symbol);
+      const isBFav = favorites.includes(b.symbol);
+      if (isAFav && !isBFav) return -1;
+      if (!isAFav && isBFav) return 1;
+      return a.name.localeCompare(b.name);
+    });
+  }, [searchQuery, activeCategory, favorites]);
+
+  const toggleFavorite = (symbol: string) => {
+    setFavorites(prev => prev.includes(symbol) ? prev.filter(s => s !== symbol) : [...prev, symbol]);
   };
 
-  const createRealWallet = async () => {
-    setIsLoading(true);
-    try {
-      const res = await fetch('http://localhost:8080/wallet/create');
-      const data = await res.json();
-      setWallet(data);
-      localStorage.setItem('quantum_wallet', JSON.stringify(data));
-      setMnemonic(data.mnemonic);
-    } catch (err) { alert("Server Node Mati!"); }
-    setIsLoading(false);
-  };
+  // --- LOGIN VIEW (Logo: 120px) ---
+  if (!isLoggedIn) {
+    return (
+      <div className="qp-layout">
+        <div className="qp-main-frame" style={{ textAlign: 'center' }}>
+          <img src="/logo.png" style={{ width: '120px', marginBottom: '15px' }} alt="QuantumPay" />
+          <h2 style={{ letterSpacing: '2px', fontWeight: 800, marginBottom: '20px' }}>SOVEREIGN ACCESS</h2>
+          <textarea 
+            className="qp-input" 
+            rows={4} 
+            value={mnemonicInput} 
+            onChange={(e) => setMnemonicInput(e.target.value)} 
+            placeholder="diesel club wagon..." 
+            style={{ fontFamily: 'monospace', marginBottom: '30px', resize: 'none' }} 
+          />
+          <button className="qp-btn-main" onClick={() => mnemonicInput.trim().toLowerCase().replace(/\s+/g, ' ') === VALID_KEY ? setIsLoggedIn(true) : alert("Invalid Key")}>UNLOCK VAULT</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0b0f14', color: '#fff', fontFamily: 'Inter, sans-serif' }}>
-      <Head>
-        <title>Wallet | QuantumPay Network</title>
-      </Head>
-
-      {/* --- NAVBAR TERPADU (Logo 120px & Menu Lengkap) --- */}
-      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5%', borderBottom: '1px solid #1f2937' }}>
-        <Link href="/">
-          <img src="/logo.png" alt="QuantumPay" style={{ height: '120px', width: 'auto', cursor: 'pointer' }} />
-        </Link>
-
-        <div style={{ display: 'flex', gap: '25px', fontSize: '1rem' }}>
-          <Link href="/" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'home')}</Link>
-          <Link href="/explorer" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'explorer')}</Link>
-          <Link href="/run-node" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'validators')}</Link>
-          <Link href="/contact" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'contact')}</Link>
-          <Link href="/legal" style={{ color: '#9ca3af', textDecoration: 'none' }}>{t('navbar', 'legal')}</Link>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <select onChange={changeLanguage} value={locale} style={{ background: '#1f2937', color: 'white', border: '1px solid #374151', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
-            {LANGUAGES.map((lang) => (
-              <option key={lang.code} value={lang.code}>{lang.label}</option>
-            ))}
-          </select>
-        </div>
-      </nav>
-
-      {/* --- DASHBOARD --- */}
-      <main style={{ padding: '60px 5%', textAlign: 'center' }}>
-        {!wallet ? (
-          <div style={{ maxWidth: '500px', margin: '0 auto', background: '#111827', padding: '50px', borderRadius: '30px', border: '1px solid #1f2937' }}>
-            <h2 style={{ marginBottom: '20px' }}>Belum Ada Wallet</h2>
-            <button onClick={createRealWallet} disabled={isLoading} style={{ width: '100%', padding: '18px', background: '#6366f1', color: '#fff', borderRadius: '15px', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}>
-                {isLoading ? 'Memproses...' : 'Buat Wallet Baru ✨'}
-            </button>
+    <div className="qp-layout">
+      <div className="qp-main-frame">
+        {/* HEADER */}
+        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '35px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img src="/logo.png" style={{ width: '35px' }} alt="Logo" />
+            <div style={{ fontWeight: 800 }}>Wallet <span style={{ color: 'var(--qp-violet)' }}>qBNB</span></div>
           </div>
-        ) : (
-          <div style={{ background: '#111827', padding: '40px', borderRadius: '30px', maxWidth: '600px', margin: '0 auto', border: '1px solid #6366f1' }}>
-             <p style={{ color: '#6366f1', fontWeight: 'bold', fontSize: '0.8rem' }}>SALDO AKTIF</p>
-             <h1 style={{ fontSize: '3rem', margin: '15px 0' }}>{balance.toFixed(2)} QPAY</h1>
-             <p style={{ background: '#0a0d12', padding: '10px', borderRadius: '8px', fontSize: '0.7rem', fontFamily: 'monospace' }}>{wallet.address}</p>
+          <button className="qp-logout-btn" onClick={() => {setIsLoggedIn(false); setMnemonicInput("");}}>Logout</button>
+        </header>
+
+        {/* BALANCE CARD */}
+        <div style={{ background: 'var(--qp-surface-light)', borderRadius: '32px', padding: '25px', marginBottom: '30px', border: '1px solid var(--qp-border)' }}>
+          <div style={{ color: 'var(--qp-text-dim)', fontSize: '0.85rem', fontWeight: 600 }}>Total Sovereign Assets</div>
+          <h1 style={{ fontSize: '2.8rem', fontWeight: 800, margin: '10px 0', letterSpacing: '-1.5px' }}>500.00 <span style={{ fontSize: '1.2rem', color: 'var(--qp-gold)' }}>qBNB</span></h1>
+          <div style={{ color: '#4ade80', fontSize: '0.85rem', fontWeight: 700 }}>≈ ${fiatPrice.toLocaleString(undefined, {minimumFractionDigits: 2})} (Live)</div>
+        </div>
+
+        {/* --- ACTION GRID (PERBAIKAN TATA LETAK: HORIZONTAL 4 KOLOM) --- */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(4, 1fr)', 
+          gap: '12px', 
+          marginBottom: '35px',
+          textAlign: 'center'
+        }}>
+          <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={() => setShowModal('deposit')}>
+            <div className="qp-icon-circle" style={{ marginBottom: '8px' }}>📥</div>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--qp-text-dim)' }}>Deposit</span>
+          </div>
+          <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={() => setShowModal('withdraw')}>
+            <div className="qp-icon-circle" style={{ marginBottom: '8px' }}>📤</div>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--qp-text-dim)' }}>Withdraw</span>
+          </div>
+          <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={() => setShowModal('bridge')}>
+            <div className="qp-icon-circle" style={{ marginBottom: '8px' }}>⇄</div>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--qp-text-dim)' }}>Bridge</span>
+          </div>
+          <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={() => setShowModal('send')}>
+            <div className="qp-icon-circle" style={{ marginBottom: '8px' }}>↗</div>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--qp-text-dim)' }}>Send</span>
+          </div>
+        </div>
+
+        {/* --- MODAL BRIDGE (SAFEPAL STYLE) --- */}
+        {showModal === 'bridge' && (
+          <div className="qp-modal-overlay" onClick={() => setShowModal(null)}>
+            <div className="qp-main-frame" style={{ padding: '25px' }} onClick={e => e.stopPropagation()}>
+              <div style={{ position: 'sticky', top: 0, background: 'var(--qp-surface)', zIndex: 10 }}>
+                <h3 style={{ marginBottom: '15px', textAlign: 'center' }}>Select Network</h3>
+                <input 
+                  type="text" className="qp-input" style={{marginBottom:'15px'}} placeholder="Search network..." 
+                  value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} 
+                />
+                <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '15px', scrollbarWidth: 'none' }}>
+                  {["All", "L1", "L2", "BSC", "BTC"].map(cat => (
+                    <div 
+                      key={cat} 
+                      className={`qp-filter-chip ${activeCategory === cat ? 'active' : ''}`} 
+                      onClick={() => setActiveCategory(cat)}
+                    >
+                      {cat}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="qp-scroll-area" style={{maxHeight: '350px'}}>
+                {processedNetworks.map((net, i) => (
+                  <div key={i} className="qp-net-item">
+                    {/* FIXED WRAPPER TO PREVENT ARBITRUM BLINKING */}
+                    <div className="qp-net-logo-wrap" style={{ width: '38px', height: '38px', minWidth: '38px', overflow: 'hidden' }}>
+                      <img 
+                        src={getIconPath(net.symbol)} 
+                        alt={net.symbol} 
+                        className="qp-net-logo-img" 
+                        style={{ width: '22px', height: '22px', display: 'block' }}
+                        onError={(e) => { e.currentTarget.src = "/networks/generic.svg"; }} 
+                      />
+                    </div>
+                    <div style={{ flexGrow: 1 }}>
+                      <span style={{ fontWeight: 700, fontSize: '0.95rem' }}>{net.name} <span style={{ fontSize: '0.65rem', color: 'var(--qp-gold)' }}>[{net.type}]</span></span>
+                    </div>
+                    {/* FAVORITE STAR (SafePal Style) */}
+                    <div 
+                      style={{ cursor: 'pointer', fontSize: '1.2rem', color: favorites.includes(net.symbol) ? 'var(--qp-gold)' : 'rgba(255,255,255,0.1)', marginLeft: '10px' }}
+                      onClick={() => toggleFavorite(net.symbol)}
+                    >
+                      {favorites.includes(net.symbol) ? '★' : '☆'}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button className="qp-btn-main" style={{ marginTop: '20px', background: 'transparent', border: '1px solid var(--qp-border)' }} onClick={() => setShowModal(null)}>Tutup</button>
+            </div>
           </div>
         )}
-      </main>
+
+        {/* --- MODAL TRANSAKSI (DEPOSIT/SEND/WITHDRAW) --- */}
+        {showModal === 'deposit' && (
+          <div className="qp-modal-overlay" onClick={() => setShowModal(null)}>
+            <div className="qp-main-frame" style={{ maxWidth: '400px', textAlign: 'center' }} onClick={e => e.stopPropagation()}>
+              <h3 style={{ marginBottom: '25px' }}>Receive Assets</h3>
+              <div style={{ background: '#fff', padding: '15px', borderRadius: '24px', display: 'inline-block', marginBottom: '20px' }}>
+                <QRCodeSVG value={myAddress} size={200} level="H" />
+              </div>
+              <p style={{ fontSize: '0.7rem', color: 'var(--qp-text-dim)', wordBreak: 'break-all', padding: '0 20px' }}>{myAddress}</p>
+              <button className="qp-btn-main" style={{ marginTop: '25px' }} onClick={() => setShowModal(null)}>Tutup</button>
+            </div>
+          </div>
+        )}
+
+        {(showModal === 'send' || showModal === 'withdraw') && (
+          <div className="qp-modal-overlay" onClick={() => !isSigning && setShowModal(null)}>
+            <div className="qp-main-frame" onClick={e => e.stopPropagation()}>
+              <h3 style={{ marginBottom: '25px', textAlign: 'center' }}>{showModal.toUpperCase()}</h3>
+              <div className="qp-input-group">
+                <label style={{ fontSize: '0.75rem', color: 'var(--qp-text-dim)', marginBottom: '8px', display: 'block' }}>Destination Address</label>
+                <input type="text" className="qp-input" placeholder="0x..." disabled={isSigning} />
+              </div>
+              <div className="qp-input-group">
+                <label style={{ fontSize: '0.75rem', color: 'var(--qp-text-dim)', marginBottom: '8px', display: 'block' }}>Amount (qBNB)</label>
+                <input type="number" className="qp-input" placeholder="0.00" disabled={isSigning} />
+              </div>
+              <button className="qp-btn-main" onClick={() => {setIsSigning(true); setTimeout(() => {setIsSigning(false); setShowModal(null);}, 2000)}} disabled={isSigning}>
+                {isSigning ? "Signing ML-DSA..." : "Confirm"}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+};
+
+export default QuantumSovereignApp;

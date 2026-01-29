@@ -1,143 +1,75 @@
-/* =========================================
-   BAGIAN 1: CORE THEME (Dark Technocrat)
-   ========================================= */
+/* ==================================================================
+   QUANTUMPAY v4.5 - STABLE SOVEREIGN UI
+   ================================================================== */
 :root {
-  --bg-main: #0b0f14;
-  --bg-surface: #111827;
-  --bg-card: #0f172a;
-
-  --text-primary: #e5e7eb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-
-  --accent: #6366f1;       /* Indigo */
-  --accent-soft: #818cf8;
-  --accent-glow: rgba(99, 102, 241, 0.35);
-  --success: #10b981;      
-  
-  --border-subtle: rgba(255, 255, 255, 0.08);
+  --qp-bg: #030305;
+  --qp-surface: #0c0c14;
+  --qp-surface-light: #161622;
+  --qp-violet: #8b5cf6;
+  --qp-gold: #fbbf24;
+  --qp-text: #f1f3f5;
+  --qp-text-dim: #94a3b8;
+  --qp-border: rgba(255, 255, 255, 0.08);
 }
 
-/* Reset Standar */
+/* ANTI-JITTER & ANTI-OVERFLOW */
 *, *::before, *::after { box-sizing: border-box; }
+
 html, body {
+  background-color: var(--qp-bg) !important;
+  color: var(--qp-text) !important;
   margin: 0; padding: 0;
-  background: radial-gradient(circle at top, #0f172a, var(--bg-main));
-  color: var(--text-primary);
-  font-family: Inter, system-ui, sans-serif;
-  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Typography & Layout Website Utama */
-h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; margin: 0; }
-h2 { font-size: 1.8rem; margin-top: 2.5rem; color: var(--text-primary); }
-p { color: var(--text-secondary); max-width: 720px; }
-.container { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; }
-
-/* Navigation */
-nav {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border-subtle);
-  backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100;
-  background: rgba(11, 15, 20, 0.8);
-}
-.nav-links a { color: var(--text-secondary); text-decoration: none; margin-right: 1.5rem; }
-.nav-links a:hover { color: var(--text-primary); }
-.nav-right { display: flex; gap: 15px; align-items: center; }
-
-/* Buttons */
-.button {
-  display: inline-block; padding: 0.7rem 1.4rem; border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-  color: white; font-weight: 500; text-decoration: none;
-  box-shadow: 0 0 30px var(--accent-glow); border: 1px solid var(--border-subtle);
-}
-.button.secondary { background: transparent; box-shadow: none; border: 1px solid var(--border-subtle); }
-
-/* Hero Section */
-.hero { padding: 5rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
-.hero-title { margin-bottom: 1rem; }
-
-/* VPS Grid (Dashboard) */
-.network-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 3rem; }
-.vps-card {
-  background: var(--bg-card); border: 1px solid var(--border-subtle);
-  border-radius: 12px; padding: 1.5rem; transition: transform 0.2s;
-}
-.vps-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-.vps-card.primary { border: 1px solid var(--accent); background: rgba(99, 102, 241, 0.05); }
-.card-header { display: flex; justify-content: space-between; margin-bottom: 1rem; }
-.detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.9rem;}
-.status-online { color: var(--success); font-weight: bold; }
-
-/* Footer */
-footer { border-top: 1px solid var(--border-subtle); padding: 2rem; text-align: center; color: var(--text-muted); margin-top: 5rem; }
-
-/* =========================================
-   BAGIAN 2: WALLET UI (SafePal Style) 
-   ========================================= */
-
-.wallet-wrapper {
-  max-width: 480px; /* Lebar Mobile App */
-  margin: 0 auto;
-  min-height: 100vh;
-  background-color: var(--bg-main);
-  position: relative;
-  padding-bottom: 80px;
-  border-left: 1px solid var(--border-subtle);
-  border-right: 1px solid var(--border-subtle);
-}
-
-/* Header Dompet */
-.wallet-header {
+.qp-layout {
+  min-height: 100vh; display: flex; justify-content: center; align-items: center;
+  background: radial-gradient(circle at top right, rgba(46, 16, 101, 0.2), var(--qp-bg));
   padding: 20px;
-  display: flex; justify-content: space-between; align-items: center;
-  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-main) 100%);
 }
-.account-selector { font-weight: bold; display: flex; gap: 5px; align-items: center; cursor: pointer; }
 
-/* Balance Card */
-.balance-card { text-align: center; padding: 30px 20px; }
-.balance-title { color: var(--text-secondary); font-size: 0.9rem; }
-.balance-amount { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; margin: 5px 0; }
-.balance-percent { color: var(--success); font-size: 0.9rem; background: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; }
-
-/* Action Buttons (Bulat) */
-.action-grid { display: flex; justify-content: space-evenly; margin: 10px 0 30px 0; }
-.action-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
-.action-icon {
-  width: 50px; height: 50px; border-radius: 50%;
-  background: var(--bg-surface); border: 1px solid var(--border-subtle);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; transition: all 0.2s;
+.qp-main-frame {
+  width: 100%; max-width: 440px; background: var(--qp-surface);
+  border-radius: 48px; padding: 35px 25px; border: 1px solid var(--qp-border);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+  position: relative; overflow: hidden;
 }
-.action-item:hover .action-icon { background: var(--accent); border-color: var(--accent); }
-.action-label { font-size: 0.8rem; color: var(--text-secondary); }
 
-/* Asset List */
-.assets-section {
-  background: var(--bg-surface);
-  border-top-left-radius: 20px; border-top-right-radius: 20px;
-  min-height: 400px; padding: 20px;
+/* FIX CATEGORY GULIR MENYAMPING (ANTI-GETAR) */
+.qp-filter-bar {
+  display: flex !important; flex-direction: row !important;
+  gap: 10px; overflow-x: auto; padding: 10px 0;
+  margin-bottom: 20px; scrollbar-width: none;
 }
-.asset-tabs { display: flex; gap: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); }
-.tab { padding-bottom: 10px; color: var(--text-secondary); cursor: pointer; position: relative; }
-.tab.active { color: white; font-weight: 600; }
-.tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--accent); }
+.qp-filter-bar::-webkit-scrollbar { display: none; }
 
-.coin-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border-subtle); }
-.coin-left { display: flex; gap: 15px; align-items: center; }
-.coin-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; }
-.coin-name { font-weight: bold; display: block; }
-.coin-sub { font-size: 0.8rem; color: var(--text-secondary); }
-.coin-right { text-align: right; }
-
-/* Bottom Nav */
-.bottom-nav {
-  position: fixed; bottom: 0; width: 100%; max-width: 480px;
-  background: rgba(17, 24, 39, 0.95); backdrop-filter: blur(10px);
-  display: flex; justify-content: space-around; padding: 15px 0;
-  border-top: 1px solid var(--border-subtle); z-index: 50;
+.qp-filter-chip {
+  padding: 8px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--qp-border); font-size: 0.75rem; font-weight: 700;
+  white-space: nowrap; cursor: pointer; color: var(--qp-text-dim);
 }
-.nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.7rem; color: var(--text-muted); cursor: pointer; }
-.nav-item.active { color: var(--accent); }
+.qp-filter-chip.active { background: var(--qp-violet); color: #fff; border-color: var(--qp-violet); }
+
+/* FIX INPUT OVERFLOW */
+.qp-input-group { width: 100%; margin-bottom: 20px; }
+.qp-input {
+  width: 100% !important; background: #050508; border: 1.5px solid var(--qp-border);
+  border-radius: 18px; padding: 18px 22px; color: #fff; font-size: 1rem;
+  outline: none; transition: 0.3s; display: block;
+}
+.qp-input:focus { border-color: var(--qp-violet); box-shadow: 0 0 15px rgba(139, 92, 246, 0.15); }
+
+/* ICON BRIDGE LOGO STABILITY */
+.qp-net-logo-wrap {
+  width: 38px; height: 38px; min-width: 38px; background: #000;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin-right: 15px; overflow: hidden; border: 1px solid var(--qp-border);
+}
+.qp-net-logo-img { width: 22px; height: 22px; object-fit: contain; }
+
+/* SCROLLBAR PREMIUM */
+.qp-scroll-area {
+  max-height: 350px; overflow-y: auto; padding-right: 8px;
+}
+.qp-scroll-area::-webkit-scrollbar { width: 3px; }
+.qp-scroll-area::-webkit-scrollbar-thumb { background: var(--qp-violet); border-radius: 10px; }
