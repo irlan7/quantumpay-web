@@ -1,28 +1,33 @@
 {
   "navbar": {
-    "home": "Beranda",
-    "explorer": "Explorer",
-    "validators": "Validator",
-    "contact": "Kontak",
-    "legal": "Kepatuhan",
-    "launch_app": "Buka Aplikasi"
+    "home": "BERANDA",
+    "explorer": "EXPLORER",
+    "validators": "VALIDATOR",
+    "contact": "KONTAK",
+    "legal": "LEGAL",
+    "launch_app": "BUKA APLIKASI"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [AKTIF]",
-    "title": "Blockchain QuantumPay Berkecepatan Tinggi",
-    "subtitle": "Membangun kedaulatan digital dengan konsensus PoS+BFT yang aman, transparan, dan terdesentralisasi untuk masa depan keuangan global.",
+    "chain_status": "MAINNET ALPHA AKTIF",
+    "title": "PERISAI KEDAULATAN",
+    "subtitle": "Standard Kerja Silicon Valley, Semangat Perlawanan Bambu Runcing.",
     "btn_explore": "Jelajahi Jaringan",
     "btn_run_node": "Jalankan Node"
   },
+  "manifesto": {
+    "title": "Manifesto Genesis",
+    "asymmetric_title": "Perlawanan Asimetris",
+    "asymmetric_desc": "Dibangun di atas hardware lama untuk membuktikan bahwa kedaulatan lahir dari presisi otak, bukan kemewahan kantor.",
+    "compliance_title": "Kepatuhan Global",
+    "compliance_desc": "Fokus di UAE, Singapura, & Swiss untuk menjamin legalitas infrastruktur anti-kuantum kami.",
+    "tier_title": "Strategi Pasar Global (Tier 1-4)",
+    "tier_1": "TIER 1 (SEKARANG): UAE, Singapura, Swiss",
+    "tier_4": "TIER 4 (KAMPUNG HALAMAN): Indonesia (Pusat R&D)"
+  },
   "infrastructure": {
-    "title": "Infrastruktur Global",
-    "description": "Node QuantumPay tersebar di berbagai pusat data terbaik dunia untuk menjamin latensi rendah dan keamanan maksimal.",
-    "card": {
-      "online": "ONLINE",
-      "latency": "Latensi"
-    }
+    "title": "Status Jaringan Global"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Distributed Ledger Network. Seluruh hak cipta dilindungi undang-undang."
+    "text": "© 2026 Infrastruktur Berdaulat QuantumPay"
   }
 }

@@ -1,28 +1,33 @@
 {
   "navbar": {
-    "home": "Home",
-    "explorer": "Explorer",
-    "validators": "Validators",
-    "contact": "Contact",
-    "legal": "Legal",
-    "launch_app": "Launch App"
+    "home": "HOME",
+    "explorer": "EXPLORER",
+    "validators": "VALIDATORS",
+    "contact": "CONTACT",
+    "legal": "LEGAL",
+    "launch_app": "LAUNCH APP"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [ACTIVE]",
-    "title": "High-Speed QuantumPay Blockchain",
-    "subtitle": "Building digital sovereignty with secure, transparent, and decentralized PoS+BFT consensus for the future of global finance.",
+    "chain_status": "MAINNET ALPHA LIVE",
+    "title": "THE SOVEREIGN SHIELD",
+    "subtitle": "Silicon Valley Standards, Bamboo Spear Spirit.",
     "btn_explore": "Explore Network",
     "btn_run_node": "Run a Node"
   },
+  "manifesto": {
+    "title": "The Genesis Manifesto",
+    "asymmetric_title": "Asymmetric Defiance",
+    "asymmetric_desc": "Built on legacy hardware to prove that sovereignty is born from mental precision, not office luxury in San Francisco.",
+    "compliance_title": "Global Compliance",
+    "compliance_desc": "Focused on UAE, Singapore, and Switzerland to ensure a regulated and secure quantum-resistant infrastructure.",
+    "tier_title": "Global Market Strategy (Tier 1-4)",
+    "tier_1": "TIER 1 (NOW): UAE, Singapore, Switzerland",
+    "tier_4": "TIER 4 (HOME): Indonesia (R&D Center)"
+  },
   "infrastructure": {
-    "title": "Global Infrastructure",
-    "description": "QuantumPay nodes are distributed across the world's best data centers to ensure low latency and maximum security.",
-    "card": {
-      "online": "ONLINE",
-      "latency": "Latency"
-    }
+    "title": "Global Network Status"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Distributed Ledger Network. All rights reserved."
+    "text": "© 2026 QuantumPay Sovereign Infrastructure"
   }
 }

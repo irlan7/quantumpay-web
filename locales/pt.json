@@ -1,28 +1,33 @@
 {
   "navbar": {
-    "home": "Início",
-    "explorer": "Explorer",
-    "validators": "Validadores",
-    "contact": "Contato",
-    "legal": "Jurídico",
-    "launch_app": "Iniciar App"
+    "home": "INÍCIO",
+    "explorer": "EXPLORER",
+    "validators": "VALIDADORES",
+    "contact": "CONTATO",
+    "legal": "LEGAL",
+    "launch_app": "ABRIR APP"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [ATIVO]",
-    "title": "Blockchain QuantumPay de Alta Velocidade",
-    "subtitle": "Construindo soberania digital com consenso PoS+BFT seguro, transparente e descentralizado para o futuro das finanças globais.",
+    "chain_status": "MAINNET ALPHA ATIVA",
+    "title": "O ESCUDO SOBERANO",
+    "subtitle": "Padrões do Silicon Valley, Espírito da Lança de Bambu.",
     "btn_explore": "Explorar Rede",
-    "btn_run_node": "Executar um Node"
+    "btn_run_node": "Rodar um Node"
+  },
+  "manifesto": {
+    "title": "O Manifesto Genesis",
+    "asymmetric_title": "Desafio Assimétrico",
+    "asymmetric_desc": "Construído em hardware antigo para provar que a soberania nasce da precisão mental, não do luxo de escritórios.",
+    "compliance_title": "Conformidade Global",
+    "compliance_desc": "Focado nos EAU, Singapura e Suíça para garantir uma infraestrutura regulamentada resistente à computação quântica.",
+    "tier_title": "Estratégia de Mercado Global (Tier 1-4)",
+    "tier_1": "TIER 1 (AGORA): EAU, Singapura, Suíça",
+    "tier_4": "TIER 4 (CASA): Indonésia (Centro de P&D)"
   },
   "infrastructure": {
-    "title": "Infraestrutura Global",
-    "description": "Os nós da QuantumPay estão distribuídos nos melhores data centers do mundo para garantir baixa latência e segurança máxima.",
-    "card": {
-      "online": "ONLINE",
-      "latency": "Latência"
-    }
+    "title": "Status da Rede Global"
   },
   "footer": {
-    "text": "© 2026 Rede de Registro Distribuído QuantumPay. Todos os direitos reservados."
+    "text": "© 2026 Infraestrutura Soberana QuantumPay"
   }
 }

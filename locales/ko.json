@@ -3,26 +3,31 @@
     "home": "홈",
     "explorer": "익스플로러",
     "validators": "밸리데이터",
-    "contact": "문의하기",
-    "legal": "법률",
+    "contact": "문의",
+    "legal": "법적 고지",
     "launch_app": "앱 실행"
   },
   "hero": {
-    "chain_status": "체인 ID: 77077 [활성]",
-    "title": "고속 QuantumPay 블록체인",
-    "subtitle": "글로벌 금융의 미래를 위해 안전하고 투명하며 탈중앙화된 PoS+BFT 합의 알고리즘으로 디지털 주권을 구축합니다.",
+    "chain_status": "메인넷 알파 활성화",
+    "title": "주권의 방패",
+    "subtitle": "실리콘밸리의 표준, 죽창의 정신.",
     "btn_explore": "네트워크 탐색",
     "btn_run_node": "노드 실행"
   },
+  "manifesto": {
+    "title": "제네시스 선언문",
+    "asymmetric_title": "비대칭적 저항",
+    "asymmetric_desc": "구형 하드웨어에서 구축되어 주권이 사무실의 사치가 아닌 정신적 정밀함에서 탄생함을 증명합니다.",
+    "compliance_title": "글로벌 컴플라이언스",
+    "compliance_desc": "UAE, 싱가포르, 스위스에 집중하여 규제된 양자 내성 인프라를 보장합니다.",
+    "tier_title": "글로벌 시장 전략 (Tier 1-4)",
+    "tier_1": "TIER 1 (현재): UAE, 싱가포르, 스위스",
+    "tier_4": "TIER 4 (홈베이스): 인도네시아 (R&D 센터)"
+  },
   "infrastructure": {
-    "title": "글로벌 인프라",
-    "description": "QuantumPay 노드는 낮은 지연 시간과 최대 보안을 보장하기 위해 세계 최고의 데이터 센터에 분산되어 있습니다.",
-    "card": {
-      "online": "온라인",
-      "latency": "지연 시간"
-    }
+    "title": "글로벌 네트워크 상태"
   },
   "footer": {
-    "text": "© 2026 QuantumPay 분산 원장 네트워크. 판권 소유."
+    "text": "© 2026 QuantumPay 주권 인프라"
   }
 }

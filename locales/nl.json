@@ -1,28 +1,33 @@
 {
   "navbar": {
-    "home": "Home",
-    "explorer": "Explorer",
-    "validators": "Validators",
-    "contact": "Contact",
-    "legal": "Juridisch",
-    "launch_app": "App Starten"
+    "home": "HOME",
+    "explorer": "EXPLORER",
+    "validators": "VALIDATORS",
+    "contact": "CONTACT",
+    "legal": "JURIDISCH",
+    "launch_app": "START APP"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [ACTIEF]",
-    "title": "Hoge-snelheid QuantumPay Blockchain",
-    "subtitle": "Bouwen aan digitale soevereiniteit met veilige, transparante en gedecentraliseerde PoS+BFT-consensus voor de toekomst van wereldwijde financiën.",
-    "btn_explore": "Netwerk Verkennen",
-    "btn_run_node": "Node Starten"
+    "chain_status": "MAINNET ALPHA LIVE",
+    "title": "HET SOUVEREINE SCHILD",
+    "subtitle": "Silicon Valley Standaarden, Bamboe Speer Geest.",
+    "btn_explore": "Verken Netwerk",
+    "btn_run_node": "Node Draaien"
+  },
+  "manifesto": {
+    "title": "Het Genesis Manifest",
+    "asymmetric_title": "Asymmetrisch Verzet",
+    "asymmetric_desc": "Gebouwd op legacy-hardware om te bewijzen dat soevereiniteit voortkomt uit mentale precisie, niet uit kantoorluxe.",
+    "compliance_title": "Wereldwijde Compliance",
+    "compliance_desc": "Gericht op de VAE, Singapore en Zwitserland om een gereguleerde quantum-resistente infrastructuur te garanderen.",
+    "tier_title": "Wereldwijde Marktstrategie (Tier 1-4)",
+    "tier_1": "TIER 1 (NU): VAE, Singapore, Zwitserland",
+    "tier_4": "TIER 4 (THUIS): Indonesië (R&D Centrum)"
   },
   "infrastructure": {
-    "title": "Wereldwijde Infrastructuur",
-    "description": "QuantumPay-nodes zijn verspreid over 's werelds beste datacenters om lage latentie en maximale veiligheid te garanderen.",
-    "card": {
-      "online": "ONLINE",
-      "latency": "Latentie"
-    }
+    "title": "Wereldwijde Netwerkstatus"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Distributed Ledger Network. Alle rechten voorbehouden."
+    "text": "© 2026 QuantumPay Souvereine Infrastructuur"
   }
 }

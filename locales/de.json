@@ -1,28 +1,33 @@
 {
   "navbar": {
-    "home": "Startseite",
-    "explorer": "Explorer",
-    "validators": "Validatoren",
-    "contact": "Kontakt",
-    "legal": "Rechtliches",
-    "launch_app": "App Starten"
+    "home": "STARTSEITE",
+    "explorer": "EXPLORER",
+    "validators": "VALIDATOREN",
+    "contact": "KONTAKT",
+    "legal": "RECHTLICHES",
+    "launch_app": "APP STARTEN"
   },
   "hero": {
-    "chain_status": "CHAIN ID: 77077 [AKTIV]",
-    "title": "Hochgeschwindigkeits-QuantumPay-Blockchain",
-    "subtitle": "Aufbau digitaler Souveränität mit sicherem, transparentem und dezentralem PoS+BFT-Konsens für die Zukunft des globalen Finanzwesens.",
-    "btn_explore": "Netzwerk Erkunden",
-    "btn_run_node": "Node Betreiben"
+    "chain_status": "MAINNET ALPHA LIVE",
+    "title": "DER SOUVERÄNE SCHILD",
+    "subtitle": "Silicon Valley Standards, Bambusspeer-Geist.",
+    "btn_explore": "Netzwerk erkunden",
+    "btn_run_node": "Node betreiben"
+  },
+  "manifesto": {
+    "title": "Das Genesis-Manifest",
+    "asymmetric_title": "Asymmetrischer Trotz",
+    "asymmetric_desc": "Auf Legacy-Hardware gebaut, um zu beweisen, dass Souveränität aus geistiger Präzision entsteht, nicht aus Büroluxus.",
+    "compliance_title": "Globale Compliance",
+    "compliance_desc": "Fokussiert auf die VAE, Singapur und die Schweiz, um eine regulierte quantenresistente Infrastruktur zu gewährleisten.",
+    "tier_title": "Globale Marktstrategie (Tier 1-4)",
+    "tier_1": "TIER 1 (JETZT): VAE, Singapur, Schweiz",
+    "tier_4": "TIER 4 (HEIMAT): Indonesien (F&E-Zentrum)"
   },
   "infrastructure": {
-    "title": "Globale Infrastruktur",
-    "description": "QuantumPay-Knoten sind über die weltweit besten Rechenzentren verteilt, um niedrige Latenzzeiten und maximale Sicherheit zu gewährleisten.",
-    "card": {
-      "online": "ONLINE",
-      "latency": "Latenz"
-    }
+    "title": "Globaler Netzwerkstatus"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Distributed Ledger Network. Alle Rechte vorbehalten."
+    "text": "© 2026 QuantumPay Souveräne Infrastruktur"
   }
 }
