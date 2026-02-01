@@ -10,24 +10,39 @@
   "hero": {
     "chain_status": "MAINNET ALPHA LIVE",
     "title": "THE SOVEREIGN SHIELD",
-    "subtitle": "Silicon Valley Standards, Bamboo Spear Spirit.",
-    "btn_explore": "Explore Network",
-    "btn_run_node": "Run a Node"
+    "subtitle": "\"Silicon Valley Standards, Bamboo Spear Spirit.\"",
+    "btn_explore": "EXPLORE NETWORK",
+    "btn_run_node": "RUN A NODE"
   },
   "manifesto": {
-    "title": "The Genesis Manifesto",
-    "asymmetric_title": "Asymmetric Defiance",
-    "asymmetric_desc": "Built on legacy hardware to prove that sovereignty is born from mental precision, not office luxury in San Francisco.",
-    "compliance_title": "Global Compliance",
-    "compliance_desc": "Focused on UAE, Singapore, and Switzerland to ensure a regulated and secure quantum-resistant infrastructure.",
-    "tier_title": "Global Market Strategy (Tier 1-4)",
-    "tier_1": "TIER 1 (NOW): UAE, Singapore, Switzerland",
-    "tier_4": "TIER 4 (HOME): Indonesia (R&D Center)"
+    "title": "THE GENESIS MANIFESTO",
+    "quote": "\"Silicon Valley Standards, Bamboo Spear Spirit.\"",
+    "desc": "Digital sovereignty does not require luxury offices in San Francisco. We build independent sovereignty on efficient hardware to secure the future.",
+    "p1_title": "ZERO FUNDING",
+    "p1_desc": "Pure innovation without third-party debt or external capital burden.",
+    "p2_title": "ONE-MAN ARMY",
+    "p2_desc": "Global engineering discipline in every line of Go-Lang native code.",
+    "p3_title": "QUANTUM ARK",
+    "p3_desc": "Protecting pioneer assets from the upcoming quantum computing threats."
+  },
+  "architecture": {
+    "title": "TECHNICAL ARCHITECTURE",
+    "item1_title": "Go-Lang Core Node",
+    "item1_desc": "Pure Go-lang native implementation. High-performance multithreading optimized for ultra-light hardware (4GB RAM).",
+    "item2_title": "PoS + BFT Consensus",
+    "item2_desc": "Advanced Proof-of-Stake with Byzantine Fault Tolerance. Ensuring instant finality and zero forking risk.",
+    "item3_title": "NIST Quantum Shield",
+    "item3_desc": "Dual-layer Post-Quantum Security using Crystals-Dilithium (Signatures) and Crystals-Kyber (Encryption).",
+    "badge": "SECURED BY CRYSTALS STACK"
   },
   "infrastructure": {
-    "title": "Global Network Status"
+    "title": "GLOBAL NETWORK",
+    "status": "Infrastructure Status",
+    "active_node": "ACTIVE NODE",
+    "latency": "LATENCY"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Sovereign Infrastructure"
+    "contact_title": "CONTACT COMMAND",
+    "text": "© 2026 QUANTUMPAY SOVEREIGN INFRASTRUCTURE"
   }
 }

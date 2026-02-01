@@ -2,32 +2,47 @@
   "navbar": {
     "home": "홈",
     "explorer": "익스플로러",
-    "validators": "밸리데이터",
-    "contact": "문의",
+    "validators": "검증인",
+    "contact": "연락처",
     "legal": "법적 고지",
     "launch_app": "앱 실행"
   },
   "hero": {
-    "chain_status": "메인넷 알파 활성화",
+    "chain_status": "메인넷 알파 가동 중",
     "title": "주권의 방패",
-    "subtitle": "실리콘밸리의 표준, 죽창의 정신.",
+    "subtitle": "\"실리콘밸리 표준, 죽창 정신.\"",
     "btn_explore": "네트워크 탐색",
     "btn_run_node": "노드 실행"
   },
   "manifesto": {
     "title": "제네시스 선언문",
-    "asymmetric_title": "비대칭적 저항",
-    "asymmetric_desc": "구형 하드웨어에서 구축되어 주권이 사무실의 사치가 아닌 정신적 정밀함에서 탄생함을 증명합니다.",
-    "compliance_title": "글로벌 컴플라이언스",
-    "compliance_desc": "UAE, 싱가포르, 스위스에 집중하여 규제된 양자 내성 인프라를 보장합니다.",
-    "tier_title": "글로벌 시장 전략 (Tier 1-4)",
-    "tier_1": "TIER 1 (현재): UAE, 싱가포르, 스위스",
-    "tier_4": "TIER 4 (홈베이스): 인도네시아 (R&D 센터)"
+    "quote": "\"실리콘밸리 표준, 죽창 정신.\"",
+    "desc": "디지털 주권은 샌프란시스코의 호화로운 사무실을 필요로 하지 않습니다. 우리는 미래를 확보하기 위해 효율적인 하드웨어 위에서 독립적인 주권을 구축합니다.",
+    "p1_title": "자금 조달 제로",
+    "p1_desc": "제3자 부채나 외부 자본의 부담이 없는 순수한 혁신.",
+    "p2_title": "일인 군대",
+    "p2_desc": "Go-Lang 네이티브 코드의 모든 라인에 녹아든 글로벌 엔지니어링 규율.",
+    "p3_title": "양자 방주",
+    "p3_desc": "다가오는 양자 컴퓨팅 위협으로부터 개척자 자산을 보호합니다."
+  },
+  "architecture": {
+    "title": "기술 아키텍처",
+    "item1_title": "Go-Lang 코어 노드",
+    "item1_desc": "순수 Go-lang 네이티브 구현. 초경량 하드웨어(4GB RAM)에 최적화된 고성능 멀티스레딩.",
+    "item2_title": "PoS + BFT 합의",
+    "item2_desc": "비잔틴 장애 허용이 포함된 고급 지분 증명. 즉각적인 최종성 및 포크 위험 제로 보장.",
+    "item3_title": "NIST 양자 방패",
+    "item3_desc": "Crystals-Dilithium(서명) 및 Crystals-Kyber(암호화)를 사용한 이중 계층 포스트 양자 보안.",
+    "badge": "CRYSTALS 스택으로 보호됨"
   },
   "infrastructure": {
-    "title": "글로벌 네트워크 상태"
+    "title": "글로벌 네트워크",
+    "status": "인프라 상태",
+    "active_node": "활성 노드",
+    "latency": "지연 시간"
   },
   "footer": {
-    "text": "© 2026 QuantumPay 주권 인프라"
+    "contact_title": "명령 센터 연락처",
+    "text": "© 2026 QUANTUMPAY 주권 인프라"
   }
 }

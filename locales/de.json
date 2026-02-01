@@ -10,24 +10,39 @@
   "hero": {
     "chain_status": "MAINNET ALPHA LIVE",
     "title": "DER SOUVERÄNE SCHILD",
-    "subtitle": "Silicon Valley Standards, Bambusspeer-Geist.",
-    "btn_explore": "Netzwerk erkunden",
-    "btn_run_node": "Node betreiben"
+    "subtitle": "\"Silicon Valley Standards, Bambusspeer-Geist.\"",
+    "btn_explore": "NETZWERK ERKUNDEN",
+    "btn_run_node": "NODE BETREIBEN"
   },
   "manifesto": {
-    "title": "Das Genesis-Manifest",
-    "asymmetric_title": "Asymmetrischer Trotz",
-    "asymmetric_desc": "Auf Legacy-Hardware gebaut, um zu beweisen, dass Souveränität aus geistiger Präzision entsteht, nicht aus Büroluxus.",
-    "compliance_title": "Globale Compliance",
-    "compliance_desc": "Fokussiert auf die VAE, Singapur und die Schweiz, um eine regulierte quantenresistente Infrastruktur zu gewährleisten.",
-    "tier_title": "Globale Marktstrategie (Tier 1-4)",
-    "tier_1": "TIER 1 (JETZT): VAE, Singapur, Schweiz",
-    "tier_4": "TIER 4 (HEIMAT): Indonesien (F&E-Zentrum)"
+    "title": "DAS GENESIS-MANIFEST",
+    "quote": "\"Silicon Valley Standards, Bambusspeer-Geist.\"",
+    "desc": "Digitale Souveränität erfordert keine Luxusbüros in San Francisco. Wir bauen unabhängige Souveränität auf effizienter Hardware auf, um die Zukunft zu sichern.",
+    "p1_title": "NULL FINANZIERUNG",
+    "p1_desc": "Reine Innovation ohne Schulden bei Drittanbietern oder externes Kapital.",
+    "p2_title": "EIN-MANN-ARMEE",
+    "p2_desc": "Globale Engineering-Disziplin in jeder Zeile Go-Lang-Native-Code.",
+    "p3_title": "QUANTEN-ARCHE",
+    "p3_desc": "Schutz von Pionierwerten vor den kommenden Bedrohungen durch Quantencomputing."
+  },
+  "architecture": {
+    "title": "TECHNISCHE ARCHITEKTUR",
+    "item1_title": "Go-Lang Core Node",
+    "item1_desc": "Reine Go-Lang Native-Implementierung. Hochleistungs-Multithreading, optimiert für ultra-leichte Hardware (4GB RAM).",
+    "item2_title": "PoS + BFT-Konsens",
+    "item2_desc": "Fortschrittliches Proof-of-Stake mit byzantinischer Fehlertoleranz. Garantiert sofortige Finalität und Null Fork-Risiko.",
+    "item3_title": "NIST Quanten-Schild",
+    "item3_desc": "Zweistufige Post-Quanten-Sicherheit mit Crystals-Dilithium (Signaturen) und Crystals-Kyber (Verschlüsselung).",
+    "badge": "GESICHERT DURCH CRYSTALS STACK"
   },
   "infrastructure": {
-    "title": "Globaler Netzwerkstatus"
+    "title": "GLOBALES NETZWERK",
+    "status": "Infrastruktur-Status",
+    "active_node": "AKTIVE NODE",
+    "latency": "LATENZ"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Souveräne Infrastruktur"
+    "contact_title": "KOMMANDO-KONTAKT",
+    "text": "© 2026 QUANTUMPAY SOUVERÄNE INFRASTRUKTUR"
   }
 }

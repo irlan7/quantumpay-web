@@ -10,24 +10,39 @@
   "hero": {
     "chain_status": "MAINNET ALPHA AKTIF",
     "title": "PERISAI KEDAULATAN",
-    "subtitle": "Standard Kerja Silicon Valley, Semangat Perlawanan Bambu Runcing.",
-    "btn_explore": "Jelajahi Jaringan",
-    "btn_run_node": "Jalankan Node"
+    "subtitle": "\"Standard Kerja Silicon Valley, Semangat Perlawanan Bambu Runcing.\"",
+    "btn_explore": "JELAJAHI JARINGAN",
+    "btn_run_node": "JALANKAN NODE"
   },
   "manifesto": {
-    "title": "Manifesto Genesis",
-    "asymmetric_title": "Perlawanan Asimetris",
-    "asymmetric_desc": "Dibangun di atas hardware lama untuk membuktikan bahwa kedaulatan lahir dari presisi otak, bukan kemewahan kantor.",
-    "compliance_title": "Kepatuhan Global",
-    "compliance_desc": "Fokus di UAE, Singapura, & Swiss untuk menjamin legalitas infrastruktur anti-kuantum kami.",
-    "tier_title": "Strategi Pasar Global (Tier 1-4)",
-    "tier_1": "TIER 1 (SEKARANG): UAE, Singapura, Swiss",
-    "tier_4": "TIER 4 (KAMPUNG HALAMAN): Indonesia (Pusat R&D)"
+    "title": "MANIFESTO GENESIS",
+    "quote": "\"Standard Kerja Silicon Valley, Semangat Perlawanan Bambu Runcing.\"",
+    "desc": "Kedaulatan digital tidak butuh kantor mewah di San Francisco. Kami membangun kedaulatan mandiri di atas hardware efisien untuk mengamankan masa depan.",
+    "p1_title": "TANPA PENDANAAN",
+    "p1_desc": "Inovasi murni tanpa beban utang pihak ketiga atau modal eksternal.",
+    "p2_title": "ONE-MAN ARMY",
+    "p2_desc": "Disiplin teknik global dalam setiap baris kode murni Go-Lang.",
+    "p3_title": "BAHTERA KUANTUM",
+    "p3_desc": "Melindungi aset perintis dari ancaman komputasi kuantum di masa depan."
+  },
+  "architecture": {
+    "title": "ARSITEKTUR TEKNIS",
+    "item1_title": "Go-Lang Core Node",
+    "item1_desc": "Implementasi murni Go-lang. Performa multithreading tinggi yang dioptimalkan untuk hardware ringan (4GB RAM).",
+    "item2_title": "Konsensus PoS + BFT",
+    "item2_desc": "Proof-of-Stake tingkat lanjut dengan Byzantine Fault Tolerance. Menjamin finalitas instan tanpa risiko fork.",
+    "item3_title": "Perisai Kuantum NIST",
+    "item3_desc": "Keamanan Pasca-Kuantum lapis ganda menggunakan Crystals-Dilithium (Tanda Tangan) dan Crystals-Kyber (Enkripsi).",
+    "badge": "DIAMANKAN OLEH CRYSTALS STACK"
   },
   "infrastructure": {
-    "title": "Status Jaringan Global"
+    "title": "JARINGAN GLOBAL",
+    "status": "Status Infrastruktur",
+    "active_node": "NODE AKTIF",
+    "latency": "LATENSI"
   },
   "footer": {
-    "text": "© 2026 Infrastruktur Berdaulat QuantumPay"
+    "contact_title": "KONTAK KOMANDO",
+    "text": "© 2026 QUANTUMPAY SOVEREIGN INFRASTRUCTURE"
   }
 }

@@ -1,33 +1,48 @@
 {
   "navbar": {
     "home": "INÍCIO",
-    "explorer": "EXPLORER",
+    "explorer": "EXPLORADOR",
     "validators": "VALIDADORES",
     "contact": "CONTATO",
-    "legal": "LEGAL",
+    "legal": "JURÍDICO",
     "launch_app": "ABRIR APP"
   },
   "hero": {
     "chain_status": "MAINNET ALPHA ATIVA",
     "title": "O ESCUDO SOBERANO",
-    "subtitle": "Padrões do Silicon Valley, Espírito da Lança de Bambu.",
-    "btn_explore": "Explorar Rede",
-    "btn_run_node": "Rodar um Node"
+    "subtitle": "\"Padrões do Vale do Silício, Espírito da Lança de Bambu.\"",
+    "btn_explore": "EXPLORAR REDE",
+    "btn_run_node": "EXECUTAR UM NODE"
   },
   "manifesto": {
-    "title": "O Manifesto Genesis",
-    "asymmetric_title": "Desafio Assimétrico",
-    "asymmetric_desc": "Construído em hardware antigo para provar que a soberania nasce da precisão mental, não do luxo de escritórios.",
-    "compliance_title": "Conformidade Global",
-    "compliance_desc": "Focado nos EAU, Singapura e Suíça para garantir uma infraestrutura regulamentada resistente à computação quântica.",
-    "tier_title": "Estratégia de Mercado Global (Tier 1-4)",
-    "tier_1": "TIER 1 (AGORA): EAU, Singapura, Suíça",
-    "tier_4": "TIER 4 (CASA): Indonésia (Centro de P&D)"
+    "title": "O MANIFESTO GÊNESE",
+    "quote": "\"Padrões do Vale do Silício, Espírito da Lança de Bambu.\"",
+    "desc": "A soberania digital não requer escritórios de luxo em San Francisco. Construímos soberania independente em hardware eficiente para garantir o futuro.",
+    "p1_title": "ZERO FINANCIAMENTO",
+    "p1_desc": "Inovação pura sem dívidas com terceiros ou carga de capital externo.",
+    "p2_title": "EXÉRCITO DE UM HOMEM SÓ",
+    "p2_desc": "Disciplina de engenharia global em cada linha de código nativo Go-Lang.",
+    "p3_title": "ARCA QUÂNTICA",
+    "p3_desc": "Protegendo ativos pioneiros das próximas ameaças da computação quântica."
+  },
+  "architecture": {
+    "title": "ARQUITETURA TÉCNICA",
+    "item1_title": "Node Principal Go-Lang",
+    "item1_desc": "Implementação nativa pura em Go-lang. Multithreading de alta performance otimizado para hardware ultra-leve (4GB RAM).",
+    "item2_title": "Consenso PoS + BFT",
+    "item2_desc": "Proof-of-Stake avançado com Tolerância a Falhas Bizantinas. Garantindo finalidade instantânea e risco zero de fork.",
+    "item3_title": "Escudo Quântico NIST",
+    "item3_desc": "Segurança Pós-Quântica de camada dupla usando Crystals-Dilithium (Assinaturas) e Crystals-Kyber (Criptografia).",
+    "badge": "PROTEGIDO PELA STACK CRYSTALS"
   },
   "infrastructure": {
-    "title": "Status da Rede Global"
+    "title": "REDE GLOBAL",
+    "status": "Status da Infraestrutura",
+    "active_node": "NODE ATIVO",
+    "latency": "LATÊNCIA"
   },
   "footer": {
-    "text": "© 2026 Infraestrutura Soberana QuantumPay"
+    "contact_title": "CONTATO DO COMANDO",
+    "text": "© 2026 QUANTUMPAY INFRAESTRUTURA SOBERANA"
   }
 }

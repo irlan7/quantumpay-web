@@ -10,24 +10,39 @@
   "hero": {
     "chain_status": "MAINNET ALPHA LIVE",
     "title": "HET SOUVEREINE SCHILD",
-    "subtitle": "Silicon Valley Standaarden, Bamboe Speer Geest.",
-    "btn_explore": "Verken Netwerk",
-    "btn_run_node": "Node Draaien"
+    "subtitle": "\"Silicon Valley-standaarden, bamboe speer-geest.\"",
+    "btn_explore": "VERKEN NETWERK",
+    "btn_run_node": "NODE DRAAIEN"
   },
   "manifesto": {
-    "title": "Het Genesis Manifest",
-    "asymmetric_title": "Asymmetrisch Verzet",
-    "asymmetric_desc": "Gebouwd op legacy-hardware om te bewijzen dat soevereiniteit voortkomt uit mentale precisie, niet uit kantoorluxe.",
-    "compliance_title": "Wereldwijde Compliance",
-    "compliance_desc": "Gericht op de VAE, Singapore en Zwitserland om een gereguleerde quantum-resistente infrastructuur te garanderen.",
-    "tier_title": "Wereldwijde Marktstrategie (Tier 1-4)",
-    "tier_1": "TIER 1 (NU): VAE, Singapore, Zwitserland",
-    "tier_4": "TIER 4 (THUIS): Indonesië (R&D Centrum)"
+    "title": "HET GENESIS MANIFEST",
+    "quote": "\"Silicon Valley-standaarden, bamboe speer-geest.\"",
+    "desc": "Digitale soevereiniteit vereist geen luxe kantoren in San Francisco. Wij bouwen onafhankelijke soevereiniteit op efficiënte hardware om de toekomst veilig te stellen.",
+    "p1_title": "GEEN FINANCIERING",
+    "p1_desc": "Pure innovatie zonder schulden aan derden of externe kapitaallast.",
+    "p2_title": "EENMANSLEGER",
+    "p2_desc": "Wereldwijde engineeringdiscipline in elke regel Go-Lang native code.",
+    "p3_title": "KWANTUM ARK",
+    "p3_desc": "Bescherming van pioniersactiva tegen de komende kwantumdreigingen."
+  },
+  "architecture": {
+    "title": "TECHNISCHE ARCHITECTUUR",
+    "item1_title": "Go-Lang Core Node",
+    "item1_desc": "Pure Go-lang native implementatie. Krachtige multithreading geoptimaliseerd voor ultra-lichte hardware (4GB RAM).",
+    "item2_title": "PoS + BFT-consensus",
+    "item2_desc": "Geavanceerde Proof-of-Stake met Byzantine Fault Tolerance. Garandeert onmiddellijke finaliteit en nul risico op forks.",
+    "item3_title": "NIST Kwantumschild",
+    "item3_desc": "Dubbellaagse Post-Quantum beveiliging met Crystals-Dilithium (Handtekeningen) en Crystals-Kyber (Versleuteling).",
+    "badge": "BEVEILIGD DOOR CRYSTALS STACK"
   },
   "infrastructure": {
-    "title": "Wereldwijde Netwerkstatus"
+    "title": "WERELDWIJD NETWERK",
+    "status": "Infrastructuurstatus",
+    "active_node": "ACTIEVE NODE",
+    "latency": "LATENTIE"
   },
   "footer": {
-    "text": "© 2026 QuantumPay Souvereine Infrastructuur"
+    "contact_title": "CONTACT COMMANDO",
+    "text": "© 2026 QUANTUMPAY SOUVEREINE INFRASTRUCTUUR"
   }
 }
