@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
-// --- KONFIGURASI SERVER ---
-const VPS_IP = "15.235.192.4";
-const API_BASE = `http://${VPS_IP}:8080/api/v1`; 
+// --- KONFIGURASI SERVER (UPDATED FOR VERCEL PROXY) ---
+// Kita gunakan jalur '/api/proxy' agar HTTPS (Vercel) bisa bicara dengan HTTP (VPS)
+// Pastikan file next.config.mjs sudah di-update juga!
+const API_BASE = '/api/proxy'; 
 
 const NETWORK_DATABASE = [
   { name: "QuantumPay Alpha", symbol: "QTM", type: "L1" },
@@ -98,7 +99,7 @@ export default function QuantumWallet() {
     }, 500);
   };
 
-  // --- 3. LOGIN LOGIC (UPDATED: FIXED ADDRESS) ---
+  // --- 3. LOGIN LOGIC (UPDATED: FIXED ADDRESS + PROXY) ---
   const handleLogin = async () => {
     setLoading(true);
     const input = mnemonicWords.join(" ").toLowerCase().trim();
@@ -133,7 +134,7 @@ export default function QuantumWallet() {
 
     try {
       let balance = "0";
-      // Cek Saldo ke VPS
+      // Cek Saldo ke VPS (Lewat Proxy Vercel)
       const res = await fetch(`${API_BASE}/balance?addr=${targetAddr}`);
       if (res.ok) { 
         const data = await res.json(); 
@@ -155,6 +156,7 @@ export default function QuantumWallet() {
     setTxStatus("PROCESSING...");
     
     try {
+      // Transfer via Proxy
       const res = await fetch(`${API_BASE}/transfer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
