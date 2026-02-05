@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -33,6 +33,10 @@ export default function Home() {
   const router = useRouter();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
+  // --- STATE BARU: Agar HP/Tablet bisa baca status Node VPS 1 ---
+  const [nodeStatus, setNodeStatus] = useState("CONNECTING...");
+  const [blockHeight, setBlockHeight] = useState(0);
+
   const { locale } = router; 
   const tObject: any = { en, id, de, nl, pt, ko, ar };
   const dict = tObject[locale as string] || en;
@@ -46,6 +50,25 @@ export default function Home() {
     const newLocale = e.target.value;
     router.push(router.pathname, router.asPath, { locale: newLocale });
   };
+
+  // --- EFEK BARU: Jembatan Data untuk HP/Tablet ---
+  useEffect(() => {
+    const fetchStatus = async () => {
+      try {
+        // Memanggil API internal Next.js (bukan IP langsung) agar aman di HP
+        const res = await fetch('/api/node-status');
+        const data = await res.json();
+        setNodeStatus(data.status);
+        setBlockHeight(data.height);
+      } catch (err) {
+        setNodeStatus("OFFLINE");
+      }
+    };
+
+    fetchStatus();
+    const interval = setInterval(fetchStatus, 5000); // Auto-refresh setiap 5 detik
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div style={{minHeight: '100vh', background: '#0b0f14', color: '#fff', fontFamily: 'Inter, sans-serif', overflowX: 'hidden'}}>
@@ -88,6 +111,26 @@ export default function Home() {
 
       {/* --- HERO SECTION --- */}
       <main style={{textAlign: 'center', padding: '120px 20px 80px'}}>
+        
+        {/* --- FITUR BARU: KARTU STATUS UNTUK HP/TABLET --- */}
+        <div style={{marginBottom: '40px'}}>
+          <div style={{
+            display: 'inline-block', 
+            padding: '20px 40px', 
+            background: '#111827', 
+            borderRadius: '20px', 
+            border: `1px solid ${nodeStatus === 'ONLINE' ? '#10b981' : '#ef4444'}`,
+            boxShadow: nodeStatus === 'ONLINE' ? '0 0 20px rgba(16, 185, 129, 0.1)' : 'none'
+          }}>
+            <p style={{margin: 0, fontSize: '0.8rem', color: '#9ca3af', letterSpacing: '2px'}}>SOVEREIGN NODE STATUS (VPS 1)</p>
+            <h2 style={{margin: '10px 0', color: nodeStatus === 'ONLINE' ? '#10b981' : '#ef4444'}}>
+              ● {nodeStatus}
+            </h2>
+            <p style={{margin: 0, fontFamily: 'monospace', color: '#6366f1'}}>Height: {blockHeight.toLocaleString()}</p>
+          </div>
+        </div>
+        {/* ------------------------------------------------ */}
+
         <div style={{marginBottom: '20px', display: 'inline-block', padding: '5px 15px', border: '1px solid rgba(99, 102, 241, 0.3)', borderRadius: '20px', color: '#6366f1', letterSpacing: '3px', fontSize: '0.75rem', fontWeight: '800', background: 'rgba(99, 102, 241, 0.1)'}}>
             {t('hero', 'chain_status')}
         </div>
