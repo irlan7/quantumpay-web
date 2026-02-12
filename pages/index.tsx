@@ -6,7 +6,7 @@ import Link from 'next/link';
 // --- 1. IMPORT KOMPONEN BARU ---
 import FounderBalance from '../components/FounderBalance';
 
-// --- 2. IMPORT INTEGRASI API GLOBAL (Jantung Baru) ---
+// --- 2. IMPORT INTEGRASI API GLOBAL ---
 import { fetchNetworkStats } from '../lib/quantumApi';
 
 // --- IMPORT KAMUS BAHASA ---
@@ -38,7 +38,7 @@ const LANGUAGES = [
 export default function Home() {
   const router = useRouter();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  
+
   // State untuk Data Live dari Singapura
   const [nodeStatus, setNodeStatus] = useState("CONNECTING...");
   const [blockHeight, setBlockHeight] = useState(0);
@@ -56,14 +56,11 @@ export default function Home() {
     router.push(router.pathname, router.asPath, { locale: newLocale });
   };
 
-  // --- LOGIKA FETCHING GLOBAL (UPDATED) ---
+  // --- LOGIKA FETCHING GLOBAL ---
   useEffect(() => {
     const getGlobalData = async () => {
       try {
-        // Memanggil API Singapura lewat lib/quantumApi.ts
         const stats = await fetchNetworkStats();
-        
-        // Jika sukses, set status ONLINE dan update Height
         setNodeStatus("ONLINE");
         setBlockHeight(stats.current_height);
       } catch (err) {
@@ -72,10 +69,7 @@ export default function Home() {
       }
     };
 
-    // Panggil saat pertama load
     getGlobalData();
-
-    // Refresh data setiap 5 detik (Real-time update)
     const interval = setInterval(getGlobalData, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -99,7 +93,6 @@ export default function Home() {
             <Link href="/explorer" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'explorer')}</Link>
             <Link href="/run-node" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'validators')}</Link>
             <Link href="/contact" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'contact')}</Link>
-            <Link href="/legal" style={{color: '#9ca3af', textDecoration: 'none'}}>{t('navbar', 'legal')}</Link>
         </div>
 
         <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
@@ -119,27 +112,56 @@ export default function Home() {
       {/* --- HERO SECTION --- */}
       <main style={{textAlign: 'center', padding: '120px 20px 80px'}}>
 
-        {/* --- LIVE STATS CONTAINER --- */}
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px', marginBottom: '60px', alignItems: 'start'}}>
+        {/* --- LIVE STATS CONTAINER (Updated Layout 3 Cards) --- */}
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px', marginBottom: '80px', alignItems: 'stretch'}}>
 
-          {/* KARTU STATUS NODE VPS 1 (Updated Data Source) */}
+          {/* 1. KARTU STATUS NODE */}
           <div style={{
-            padding: '20px 40px',
+            padding: '25px',
             background: '#111827',
-            borderRadius: '25px',
+            borderRadius: '20px',
             border: `1px solid ${nodeStatus === 'ONLINE' ? '#10b981' : '#ef4444'}`,
             boxShadow: nodeStatus === 'ONLINE' ? '0 0 20px rgba(16, 185, 129, 0.1)' : 'none',
-            minWidth: '320px'
+            flex: '1 1 300px',
+            maxWidth: '350px',
+            textAlign: 'left'
           }}>
-            <p style={{margin: 0, fontSize: '0.7rem', color: '#9ca3af', letterSpacing: '2px', fontWeight: 'bold'}}>SOVEREIGN NODE STATUS</p>
-            <h2 style={{margin: '10px 0', color: nodeStatus === 'ONLINE' ? '#10b981' : '#ef4444', fontSize: '1.5rem'}}>
+            <p style={{margin: 0, fontSize: '0.7rem', color: '#9ca3af', letterSpacing: '2px', fontWeight: 'bold'}}>NETWORK STATUS</p>
+            <h2 style={{margin: '10px 0', color: nodeStatus === 'ONLINE' ? '#10b981' : '#ef4444', fontSize: '1.8rem', fontWeight: 'bold'}}>
               ● {nodeStatus}
             </h2>
-            <p style={{margin: 0, fontFamily: 'monospace', color: '#6366f1', fontSize: '0.9rem'}}>Chain Height: {blockHeight.toLocaleString()}</p>
+            <p style={{margin: 0, fontFamily: 'monospace', color: '#6366f1', fontSize: '0.9rem'}}>Height: {blockHeight.toLocaleString()}</p>
           </div>
 
-          {/* --- KARTU SALDO FOUNDER --- */}
-          <div style={{maxWidth: '500px', width: '100%'}}>
+          {/* 2. KARTU TOTAL SUPPLY (NEW - 210 Juta QTM) */}
+          <div style={{
+            padding: '25px',
+            background: '#1f2937', // Sedikit berbeda warnanya untuk highlight
+            borderRadius: '20px',
+            border: '1px solid #374151',
+            boxShadow: '0 0 30px rgba(99, 102, 241, 0.15)',
+            flex: '1 1 300px',
+            maxWidth: '350px',
+            textAlign: 'left',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+             {/* Decorative Background Glow */}
+             <div style={{position: 'absolute', top: '-50px', right: '-50px', width: '100px', height: '100px', background: '#6366f1', filter: 'blur(60px)', opacity: 0.3}}></div>
+
+             <p style={{margin: 0, fontSize: '0.7rem', color: '#d1d5db', letterSpacing: '2px', fontWeight: 'bold'}}>MAX TOTAL SUPPLY</p>
+             <h2 style={{margin: '10px 0', color: '#fff', fontSize: '1.8rem', fontWeight: 'bold'}}>
+               210,000,000 <span style={{fontSize: '1rem', color: '#818cf8'}}>QTM</span>
+             </h2>
+             {/* Progress Bar Full (Hard Cap) */}
+             <div style={{width: '100%', height: '6px', background: '#374151', borderRadius: '3px', marginTop: '15px'}}>
+                <div style={{width: '100%', height: '100%', background: 'linear-gradient(90deg, #6366f1, #a855f7)', borderRadius: '3px'}}></div>
+             </div>
+             <p style={{margin: '10px 0 0', fontSize: '0.75rem', color: '#9ca3af'}}>Fixed Genesis Cap (Deflationary)</p>
+          </div>
+
+          {/* 3. KARTU SALDO FOUNDER / GUARDIAN (Imported Component) */}
+          <div style={{flex: '1 1 300px', maxWidth: '350px'}}>
             <FounderBalance />
           </div>
 
@@ -159,7 +181,7 @@ export default function Home() {
 
         <div style={{display: 'flex', gap: '20px', justifyContent: 'center', marginBottom: '100px'}}>
             <Link href="/explorer">
-                <button style={{padding: '18px 40px', borderRadius: '15px', cursor: 'pointer', border: 'none', fontWeight: 'bold', background: '#6366f1', color: 'white', fontSize: '1rem'}}>
+                <button style={{padding: '18px 40px', borderRadius: '15px', cursor: 'pointer', border: 'none', fontWeight: 'bold', background: '#6366f1', color: 'white', fontSize: '1rem', transition: 'transform 0.2s'}}>
                     {t('hero', 'btn_explore')}
                 </button>
             </Link>
@@ -170,67 +192,7 @@ export default function Home() {
             </Link>
         </div>
 
-        {/* --- MANIFESTO SECTION --- */}
-        <section style={{padding: '80px 20px', background: '#050505', borderTop: '1px solid #1f2937', marginBottom: '100px'}}>
-            <div style={{maxWidth: '1000px', margin: '0 auto'}}>
-                <h2 style={{color: '#ffd700', letterSpacing: '4px', fontSize: '0.8rem', marginBottom: '40px', textTransform: 'uppercase'}}>
-                    {t('manifesto', 'title')}
-                </h2>
-                <p style={{fontSize: '2.5rem', fontWeight: '300', color: '#e5e7eb', marginBottom: '30px', lineHeight: '1.3'}}>
-                    {t('manifesto', 'quote')}
-                </p>
-                <p style={{color: '#9ca3af', fontSize: '1.1rem', marginBottom: '80px', maxWidth: '750px', marginLeft: 'auto', marginRight: 'auto'}}>
-                    {t('manifesto', 'desc')}
-                </p>
-
-                <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px'}}>
-                    <div style={{flex: '1 1 250px', maxWidth: '300px'}}>
-                        <div style={{height: '2px', width: '50px', background: '#6366f1', margin: '0 auto 20px'}}></div>
-                        <h4 style={{color: '#ffd700', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', marginBottom: '10px'}}>{t('manifesto', 'p1_title')}</h4>
-                        <p style={{color: '#6b7280', fontSize: '0.9rem'}}>{t('manifesto', 'p1_desc')}</p>
-                    </div>
-                    <div style={{flex: '1 1 250px', maxWidth: '300px'}}>
-                        <div style={{height: '2px', width: '50px', background: '#6366f1', margin: '0 auto 20px'}}></div>
-                        <h4 style={{color: '#ffd700', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', marginBottom: '10px'}}>{t('manifesto', 'p2_title')}</h4>
-                        <p style={{color: '#6b7280', fontSize: '0.9rem'}}>{t('manifesto', 'p2_desc')}</p>
-                    </div>
-                    <div style={{flex: '1 1 250px', maxWidth: '300px'}}>
-                        <div style={{height: '2px', width: '50px', background: '#6366f1', margin: '0 auto 20px'}}></div>
-                        <h4 style={{color: '#ffd700', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', marginBottom: '10px'}}>{t('manifesto', 'p3_title')}</h4>
-                        <p style={{color: '#6b7280', fontSize: '0.9rem'}}>{t('manifesto', 'p3_desc')}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {/* --- TECHNICAL ARCHITECTURE SECTION --- */}
-        <section style={{padding: '100px 20px', borderTop: '1px solid #1f2937', borderBottom: '1px solid #1f2937', marginBottom: '100px'}}>
-            <div style={{maxWidth: '1100px', margin: '0 auto'}}>
-                <h2 style={{color: '#ffd700', letterSpacing: '5px', fontSize: '0.8rem', marginBottom: '60px', textTransform: 'uppercase'}}>
-                    {t('architecture', 'title')}
-                </h2>
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', textAlign: 'left'}}>
-                    <div style={{padding: '30px', background: '#111827', borderRadius: '20px', border: '1px solid #1f2937'}}>
-                        <div style={{fontSize: '1.5rem', marginBottom: '15px'}}>🏗️</div>
-                        <h4 style={{fontSize: '1.2rem', marginBottom: '10px'}}>{t('architecture', 'item1_title')}</h4>
-                        <p style={{color: '#9ca3af', fontSize: '0.85rem', lineHeight: '1.6'}}>{t('architecture', 'item1_desc')}</p>
-                    </div>
-                    <div style={{padding: '30px', background: '#111827', borderRadius: '20px', border: '1px solid #1f2937'}}>
-                        <div style={{fontSize: '1.5rem', marginBottom: '15px'}}>⚡</div>
-                        <h4 style={{fontSize: '1.2rem', marginBottom: '10px'}}>{t('architecture', 'item2_title')}</h4>
-                        <p style={{color: '#9ca3af', fontSize: '0.85rem', lineHeight: '1.6'}}>{t('architecture', 'item2_desc')}</p>
-                    </div>
-                    <div style={{padding: '30px', background: '#111827', borderRadius: '20px', border: '1px solid #1f2937'}}>
-                        <div style={{fontSize: '1.5rem', marginBottom: '15px'}}>🛡️</div>
-                        <h4 style={{fontSize: '1.2rem', marginBottom: '10px'}}>{t('architecture', 'item3_title')}</h4>
-                        <p style={{color: '#9ca3af', fontSize: '0.85rem', lineHeight: '1.6'}}>{t('architecture', 'item3_desc')}</p>
-                        <div style={{marginTop: '15px', color: '#6366f1', fontSize: '0.7rem', fontWeight: 'bold'}}>{t('architecture', 'badge')}</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {/* --- GLOBAL NETWORK STATUS --- */}
+        {/* --- INFRASTRUCTURE CARDS (Updated Visuals) --- */}
         <div style={{maxWidth: '1200px', margin: '0 auto', textAlign: 'left'}}>
             <h2 style={{textAlign: 'center', marginBottom: '10px', color: '#ffd700', fontSize: '0.8rem', letterSpacing: '3px', textTransform: 'uppercase'}}>{t('infrastructure', 'title')}</h2>
             <h3 style={{textAlign: 'center', marginBottom: '60px', fontSize: '3.5rem', fontWeight: '800'}}>{t('infrastructure', 'status')}</h3>
@@ -246,7 +208,8 @@ export default function Home() {
                              borderRadius: '25px',
                              padding: '40px',
                              transition: 'all 0.3s ease',
-                             transform: hoveredCard === index ? 'translateY(-5px)' : 'none'
+                             transform: hoveredCard === index ? 'translateY(-5px)' : 'none',
+                             boxShadow: hoveredCard === index ? '0 10px 40px rgba(99, 102, 241, 0.1)' : 'none'
                          }}>
                         <div style={{color: '#ffd700', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <span style={{height: '8px', width: '8px', background: '#10b981', borderRadius: '50%', boxShadow: '0 0 10px #10b981'}}></span>
@@ -264,6 +227,7 @@ export default function Home() {
                 ))}
             </div>
         </div>
+
       </main>
 
       {/* --- FOOTER --- */}
